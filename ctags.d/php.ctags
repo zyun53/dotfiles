@@ -1,0 +1,9 @@
+--tag-relative=yes 
+--exclude=composer.phar
+--exclude="*Test.php"
+--exclude="*phpunit*"
+--exclude="\.git"
+--append=yes
+--recurse=yes
+--langmap=PHP:+.inc
+--PHP-kinds=+cdfint-av
