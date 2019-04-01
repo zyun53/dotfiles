@@ -1,6 +1,4 @@
-ln -s -f ~/dotfiles/zshrc ~/.zshrc
-
-ln -s -f ~/dotfiles/tmux.conf ~/.tmux.conf
-
-ln -s -f ~/dotfiles/vimrc ~/.vimrc
-#ln -s -f ~/dotfiles/vim ~/.vim
+ln -s ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/dotfiles/vim ~/.vim

@@ -39,3 +39,13 @@ repo = 'plasticboy/vim-markdown'
 
 [[plugins]]
 repo = 'joonty/vdebug'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
