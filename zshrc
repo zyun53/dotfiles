@@ -82,3 +82,5 @@ case ${OSTYPE} in
         source ~/dotfiles/zshrc.linux
         ;;
 esac
+
+source ${HOME}/.aliases

@@ -1,5 +1,10 @@
-[alias]
-    it = !git init && git commit -m root --allow-empty
 [user]
-	name = Isida Zyun'iti
-	email = zyun@moin.jp
+  name = Isida Zyun'iti
+  email = zyun@moin.jp
+[core]
+  editor = vim -c \"set fenc=utf-8\"
+[credential]
+  helper = store
+[alias]
+  it = !git init && git commit -m root --allow-empty
+  lg = log --graph --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d%Creset %Cgreen(%cr:%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
