@@ -1,6 +1,6 @@
 "dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible
 endif
 
 " Required:
@@ -10,26 +10,19 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
-  " Let dein manage dein
-  " Required:
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#load_toml('~/.vim/plugins.toml')
 
-  call dein#load_toml("~/.vim/plugins.toml", {})
-
-  " Required:
   call dein#end()
   call dein#save_state()
 endif
 
-" Required:
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
 endif
-
 "End dein Scripts-------------------------
 
 " ----------------------------------------------------------------------------
@@ -155,6 +148,17 @@ augroup END
 
 " 複数タグが見つかった場合
 nnoremap <C-]> g<C-]>
+
+" flake8をLinterとして登録
+let g:ale_linters = {
+  \ 'python': ['flake8'],
+  \ 'php': ['phpcs'],
+  \ }
+
+let g:ale_fixers = {
+  \ 'python': ['autopep8', 'black', 'isort'],
+  \ }
+
 
 " phpcs -i　で返ってきた値を使えます。
 let g:ale_php_phpcs_standard = 'PSR2'

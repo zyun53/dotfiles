@@ -26,11 +26,8 @@ zplug "modules/directory",  from:prezto
 zplug "zsh-users/zsh-history-substring-search"
 
 # theme (https://github.com/sindresorhus/pure#zplug)
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
-
-# Load theme file
-zplug 'dracula/zsh', as:theme
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
