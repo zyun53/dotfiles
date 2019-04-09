@@ -71,6 +71,8 @@ export GOPATH=~/.go
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -d ~/.composer/vendor/bin ] && export PATH=~/.composer/vendor/bin:$PATH
+
 case ${OSTYPE} in
     darwin*)
         source ~/dotfiles/zshrc.darwin
