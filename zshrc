@@ -66,12 +66,14 @@ export PATH=~/.local/bin:~/.go/bin:/usr/local/go/bin:$PATH
 export GOPATH=~/.go
 
 [[ -s /usr/local/bin/aws_zsh_completer.sh ]] && source /usr/local/bin/aws_zsh_completer.sh
+[[ -s ~/.local/bin/aws_zsh_completer.sh ]] && source ~/.local/bin/aws_zsh_completer.sh
 
-[ -f /home/zyun/.travis/travis.sh ] && source /home/zyun/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -d ~/.composer/vendor/bin ] && export PATH=~/.composer/vendor/bin:$PATH
+[ -d ~/.config/composer/vendor/bin ] && export PATH=~/.config/composer/vendor/bin:$PATH
 
 case ${OSTYPE} in
     darwin*)

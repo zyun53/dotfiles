@@ -166,3 +166,28 @@ let g:ale_php_phpcs_standard = 'PSR2'
 let g:ale_php_phpcs_use_global = 1
 
 let g:vdebug_force_ascii = 1
+
+"" nerdtree
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+let g:NERDTreeWinSize = 30
+let NERDTreeShowHidden=1
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+nnoremap <Leader>dir :NERDTreeTabsToggle<CR>
+autocmd BufWritePre * :FixWhitespace
+
+"" vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+"" python
+augroup vimrc-python
+  autocmd!
+  autocmd FileType python setlocal
+      \ formatoptions+=croq softtabstop=4
+      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+augroup END

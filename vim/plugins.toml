@@ -39,6 +39,9 @@ repo = 'w0rp/ale'
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+
+[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -49,3 +52,70 @@ repo = 'plasticboy/vim-markdown'
 
 [[plugins]]
 repo = 'joonty/vdebug'
+
+# ga -> align
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
+
+# space + go -> exec script
+#[[plugins]]
+#repo = 'thinca/vim-quickrun'
+#[[plugins]]
+#repo = 'Shougo/vimproc.vim', {'do' : 'make'}
+
+# gcc -> comment
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+# option bar
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+# auto bracket
+[[plugins]]
+repo = 'Raimondi/delimitMate'
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# delete white space
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+# auto complete
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+[[plugins]]
+repo = 'Valloric/YouCompleteMe'
+[[plugins]]
+repo = 'ervandew/supertab'
+
+# html
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+[[plugins]]
+repo = 'gorodinskiy/vim-coloresque'
+[[plugins]]
+repo = 'tpope/vim-haml'
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+# javascript
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+
+# php
+[[plugins]]
+repo = 'arnaud-lb/vim-php-namespace'
+
+# python
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+#[[plugins]]
+#repo = 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+
+# space + sh -> vimshell
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
