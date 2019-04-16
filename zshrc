@@ -22,6 +22,8 @@ zplug "modules/ssh",        from:prezto
 zplug "modules/terminal",   from:prezto
 zplug "modules/directory",  from:prezto
 
+zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
+
 # hisotry
 zplug "zsh-users/zsh-history-substring-search"
 
@@ -85,3 +87,7 @@ case ${OSTYPE} in
 esac
 
 source ${HOME}/.aliases
+
+
+export AUTOSWITCH_DEFAULT_PYTHON="/usr/bin/python3"
+

@@ -1,29 +1,66 @@
-"dein Scripts-----------------------------
-if &compatible
+"vim-plug -----------------------------
+if has('vim_starting')
   set nocompatible
 endif
 
-" Required:
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#load_toml('~/.vim/plugins.toml')
-
-  call dein#end()
-  call dein#save_state()
+if !filereadable(expand('~/.vim/autoload/plug.vim'))
+  if !executable("curl")
+    echoerr "You have to install curl or first install vim-plug yourself!"
+    execute "q!"
+  endif
+  echo "Installing Vim-Plug..."
+  echo ""
+  silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  let g:not_finish_vimplug = "yes"
+  autocmd VimEnter * PlugInstall
 endif
 
-filetype plugin indent on
-syntax enable
+call plug#begin('~/.vim/plugged')
 
-if dein#check_install()
-  call dein#install()
-endif
-"End dein Scripts-------------------------
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+Plug 'junegunn/vim-github-dashboard'
+
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'mileszs/ack.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'w0rp/ale'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'joonty/vdebug'
+Plug 'junegunn/vim-easy-align'
+
+Plug 'thinca/vim-quickrun'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-surround'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'sheerun/vim-polyglot'
+Plug 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'tpope/vim-haml'
+Plug 'mattn/emmet-vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'Shougo/vimshell.vim'
+
+" Initialize plugin system
+call plug#end()
+"End vim-plug -------------------------
 
 " ----------------------------------------------------------------------------
 " OPTIONS
@@ -191,3 +228,19 @@ augroup vimrc-python
       \ formatoptions+=croq softtabstop=4
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
+
+
+"" youcompleteme
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:make = 'gmake'
+if exists('make')
+  let g:make = 'make'
+endif
