@@ -7,6 +7,9 @@ case ${OSTYPE} in
     ;;
 esac
 
+export PATH=~/.local/bin:~/.go/bin:/usr/local/go/bin:$PATH
+export GOPATH=~/.go
+
 # タイプ補完
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
@@ -63,9 +66,6 @@ bindkey "^S" history-incremental-search-forward
 
 autoload -U compinit
 compinit
-
-export PATH=~/.local/bin:~/.go/bin:/usr/local/go/bin:$PATH
-export GOPATH=~/.go
 
 [[ -s /usr/local/bin/aws_zsh_completer.sh ]] && source /usr/local/bin/aws_zsh_completer.sh
 [[ -s ~/.local/bin/aws_zsh_completer.sh ]] && source ~/.local/bin/aws_zsh_completer.sh
