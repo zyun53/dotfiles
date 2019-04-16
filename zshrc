@@ -1,3 +1,5 @@
+export LANG="en_US.UTF-8"
+
 case ${OSTYPE} in
   darwin*)
     source /usr/local/opt/zplug/init.zsh
