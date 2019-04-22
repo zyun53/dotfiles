@@ -93,3 +93,6 @@ source ${HOME}/.aliases
 
 export AUTOSWITCH_DEFAULT_PYTHON="/usr/bin/python3"
 
+# coinbase/assume-role
+# https://github.com/coinbase/assume-role
+source $(which assume-role)
