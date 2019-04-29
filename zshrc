@@ -36,6 +36,16 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*darwin*amd64*"
+
+zplug "coinbase/assume-role", \
+    as:command, \
+    use:"assume-role"
+
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -76,8 +86,12 @@ compinit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+source $(which assume-role)
+
 [ -d ~/.composer/vendor/bin ] && export PATH=~/.composer/vendor/bin:$PATH
 [ -d ~/.config/composer/vendor/bin ] && export PATH=~/.config/composer/vendor/bin:$PATH
+
+export AUTOSWITCH_DEFAULT_PYTHON="/usr/bin/python3"
 
 case ${OSTYPE} in
     darwin*)
@@ -89,10 +103,3 @@ case ${OSTYPE} in
 esac
 
 source ${HOME}/.aliases
-
-
-export AUTOSWITCH_DEFAULT_PYTHON="/usr/bin/python3"
-
-# coinbase/assume-role
-# https://github.com/coinbase/assume-role
-source $(which assume-role)
