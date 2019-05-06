@@ -1,5 +1,6 @@
 # dotfiles
 
+
 ## Setup.
 
 ```
@@ -48,3 +49,8 @@ sh ./installer.sh ~/.cache/dein
 
 Vim for PHP: The Complete Guide for a Powerful PHP IDE · Web technologies
 https://web-techno.net/vim-php-ide/
+
+
+## zsh
+
+https://github.com/greymd/tmux-xpanes

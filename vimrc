@@ -52,11 +52,18 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
+" html
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
+Plug 'jwalton512/vim-blade'
+
 Plug 'jelera/vim-javascript-syntax'
 Plug 'arnaud-lb/vim-php-namespace'
+
 Plug 'Shougo/vimshell.vim'
+
+" php
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
 " Initialize plugin system
 call plug#end()
@@ -231,8 +238,8 @@ augroup END
 
 
 "" youcompleteme
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
-let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
+let g:ycm_python_binary_path = '/usr/local/bin/python3'
 let g:ycm_auto_trigger = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -244,3 +251,37 @@ let g:make = 'gmake'
 if exists('make')
   let g:make = 'make'
 endif
+
+"""
+""" phpactor
+"""
+" Include use statement
+nmap <Leader>u :call phpactor#UseAdd()<CR>
+
+" Invoke the context menu
+nmap <Leader>mm :call phpactor#ContextMenu()<CR>
+
+" Invoke the navigation menu
+nmap <Leader>nn :call phpactor#Navigate()<CR>
+
+" Goto definition of class or class member under the cursor
+nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+
+" Show brief information about the symbol under the cursor
+nmap <Leader>K :call phpactor#Hover()<CR>
+
+" Transform the classes in the current file
+nmap <Leader>tt :call phpactor#Transform()<CR>
+
+" Generate a new class (replacing the current file)
+nmap <Leader>cc :call phpactor#ClassNew()<CR>
+
+" Extract expression (normal mode)
+nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
+
+" Extract expression from selection
+vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+
+" Extract method from selection
+vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
+autocmd FileType php setlocal omnifunc=phpactor#Complete
