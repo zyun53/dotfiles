@@ -9,16 +9,26 @@ case ${OSTYPE} in
     ;;
 esac
 
-export PATH=~/.local/bin:~/.go/bin:/usr/local/go/bin:$PATH
-export GOPATH=~/.go
+export PATH=~/.local/bin:$PATH
 
-# タイプ補完
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
+# 256をうまい事設定してくれる
 zplug "chrissicool/zsh-256color"
 
-# syntax hignlihg(https://github.com/zsh-users/zsh-syntax-highlighting)
+# 補完を更に強化する
+# pacman や yaourt のパッケージリストも補完するようになる
+zplug "zsh-users/zsh-completions"
+
+# git の補完を効かせる
+# 補完＆エイリアスが追加される
+zplug "plugins/git",   from:oh-my-zsh
+zplug "peterhurford/git-aliases.zsh"
+
+# 入力途中に候補をうっすら表示
+zplug "zsh-users/zsh-autosuggestions"
+# コマンドを種類ごとに色付け
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# ヒストリの補完を強化する
+zplug "zsh-users/zsh-history-substring-search", defer:3
 
 zplug "modules/tmux",       from:prezto
 zplug "modules/history",    from:prezto
@@ -27,26 +37,28 @@ zplug "modules/ssh",        from:prezto
 zplug "modules/terminal",   from:prezto
 zplug "modules/directory",  from:prezto
 
-zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
-
-# hisotry
-zplug "zsh-users/zsh-history-substring-search"
-
 # theme (https://github.com/sindresorhus/pure#zplug)
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
+zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 zplug "junegunn/fzf-bin", \
     from:gh-r, \
     as:command, \
-    rename-to:fzf, \
-    use:"*darwin*amd64*"
-
+    rename-to:fzf
+# awsのmfaをCLIで便利に切り替えられる
 zplug "coinbase/assume-role", \
     as:command, \
     use:"assume-role"
-
+# tmuxのパネルをsshで開くやつ
 zplug "greymd/tmux-xpanes"
+# fzf でよく使う関数の詰め合わせ
+zplug "mollifier/anyframe"
+# git のローカルリポジトリを一括管理（fzf でリポジトリへジャンプ）
+zplug "motemen/ghq", as:command, from:gh-r
+# pythonのvenvを自動切換え
+zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
+
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
