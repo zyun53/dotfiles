@@ -2,14 +2,14 @@ export LANG="en_US.UTF-8"
 
 case ${OSTYPE} in
   darwin*)
-    source /usr/local/opt/zplug/init.zsh
     ;;
   linux*)
-    source ~/.zplug/init.zsh
     ;;
 esac
 
-export PATH=~/.local/bin:$PATH
+export PATH=~/go/bin:~/.local/bin:$PATH
+
+source ~/.zplug/init.zsh
 
 # 256をうまい事設定してくれる
 zplug "chrissicool/zsh-256color"
