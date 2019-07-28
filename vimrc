@@ -65,6 +65,10 @@ Plug 'Shougo/vimshell.vim'
 " php
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
+" sql
+Plug 'vim-scripts/Align'
+Plug 'vim-scripts/SQLUtilities'
+
 " Initialize plugin system
 call plug#end()
 "End vim-plug -------------------------
@@ -222,7 +226,7 @@ let g:NERDTreeWinSize = 30
 let NERDTreeShowHidden=1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <Leader>dir :NERDTreeTabsToggle<CR>
-autocmd BufWritePre * :FixWhitespace
+" autocmd BufWritePre * :FixWhitespace
 
 "" vim-easy-align
 xmap ga <Plug>(EasyAlign)
@@ -271,7 +275,7 @@ nmap <Leader>o :call phpactor#GotoDefinition()<CR>
 nmap <Leader>K :call phpactor#Hover()<CR>
 
 " Transform the classes in the current file
-nmap <Leader>tt :call phpactor#Transform()<CR>
+" nmap <Leader>tt :call phpactor#Transform()<CR>
 
 " Generate a new class (replacing the current file)
 nmap <Leader>cc :call phpactor#ClassNew()<CR>

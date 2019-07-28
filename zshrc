@@ -1,11 +1,11 @@
 export LANG="en_US.UTF-8"
 
+source ~/.zplug/init.zsh
+
 case ${OSTYPE} in
   darwin*)
-    source /usr/local/opt/zplug/init.zsh
     ;;
   linux*)
-    source ~/.zplug/init.zsh
     ;;
 esac
 
