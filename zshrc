@@ -9,7 +9,9 @@ case ${OSTYPE} in
     ;;
 esac
 
-export PATH=~/.local/bin:$PATH
+export PATH=~/go/bin:~/.local/bin:$PATH
+
+source ~/.zplug/init.zsh
 
 # 256をうまい事設定してくれる
 zplug "chrissicool/zsh-256color"
