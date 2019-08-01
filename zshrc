@@ -2,6 +2,11 @@ export LANG="en_US.UTF-8"
 
 case ${OSTYPE} in
   darwin*)
+    export PATH="/usr/local/opt/ruby/bin:$PATH"
+    export LDFLAGS="-L/usr/local/opt/ruby/lib"
+    export CPPFLAGS="-I/usr/local/opt/ruby/include"
+    export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+    export AUTOSWITCH_DEFAULT_PYTHON="/usr/local/bin/python3"
     ;;
   linux*)
     ;;
@@ -10,6 +15,10 @@ esac
 export PATH=~/go/bin:~/.local/bin:$PATH
 
 source ~/.zplug/init.zsh
+
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
 
 # 256をうまい事設定してくれる
 zplug "chrissicool/zsh-256color"
@@ -104,8 +113,6 @@ source $(which assume-role)
 
 [ -d ~/.composer/vendor/bin ] && export PATH=~/.composer/vendor/bin:$PATH
 [ -d ~/.config/composer/vendor/bin ] && export PATH=~/.config/composer/vendor/bin:$PATH
-
-export AUTOSWITCH_DEFAULT_PYTHON="/usr/bin/python3"
 
 case ${OSTYPE} in
     darwin*)
