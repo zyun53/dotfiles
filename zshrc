@@ -1,5 +1,7 @@
 export LANG="en_US.UTF-8"
 
+source ~/.zplug/init.zsh
+
 case ${OSTYPE} in
   darwin*)
     export PATH="/usr/local/opt/ruby/bin:$PATH"
