@@ -1,9 +1,5 @@
-[include]
-  path = .gitconfig.local
 [core]
   editor = vim -c \"set fenc=utf-8\"
-[credential]
-  helper = store
 [alias]
   it = !git init && git commit -m root --allow-empty
   df = diff
@@ -11,7 +7,6 @@
   cm = commit
   st = status
   co = checkout
-  #lg = log --graph --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d%Creset %Cgreen(%cr:%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   ph = push origin HEAD
@@ -22,8 +17,7 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-
-#[commit]
-#  gpgsign = false
-#[user]
-#  signingkey = 3E97C5C4BC204217
+[include]
+  path = .gitconfig.local,~/.netlify/helper/git-config
+[ghq]
+  root = /Users/zyun/src
