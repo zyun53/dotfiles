@@ -18,6 +18,7 @@
   process = git-lfs filter-process
   required = true
 [include]
-  path = .gitconfig.local,~/.netlify/helper/git-config
+  path = .gitconfig.local
+  path = ~/.netlify/helper/git-config
 [ghq]
-  root = /Users/zyun/src
+  root = ~/src
