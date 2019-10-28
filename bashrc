@@ -123,6 +123,6 @@ else
 fi
 
 # added by travis gem
-[ -f /home/zyun/.travis/travis.sh ] && source /home/zyun/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

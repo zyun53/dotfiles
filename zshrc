@@ -4,7 +4,7 @@ source ~/.zplug/init.zsh
 
 case ${OSTYPE} in
   darwin*)
-    export PATH="/usr/local/opt/ruby/bin:$PATH"
+    export PATH="~/Library/Python/3.7/bin:/usr/local/opt/ruby/bin:$PATH"
     export LDFLAGS="-L/usr/local/opt/ruby/lib"
     export CPPFLAGS="-I/usr/local/opt/ruby/include"
     export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"

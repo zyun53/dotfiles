@@ -1,10 +1,10 @@
-ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
-ln -s ~/dotfiles/aliases ~/.aliases
+ln -fs ~/dotfiles/zshrc ~/.zshrc
+ln -fs ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -fs ~/dotfiles/vimrc ~/.vimrc
+ln -fs ~/dotfiles/vim ~/.vim
+ln -fs ~/dotfiles/gitconfig ~/.gitconfig
+ln -fs ~/dotfiles/aliases ~/.aliases
 
-ln -s ~/dotfiles/my.cnf ~/.my.cnf
+ln -fs ~/dotfiles/my.cnf ~/.my.cnf
 
-ln -s ~/dotfiles/grcat ~/.grcat
+ln -fs ~/dotfiles/grcat ~/.grcat
