@@ -2,9 +2,12 @@ export LANG="en_US.UTF-8"
 
 source ~/.zplug/init.zsh
 
+export PATH="~/go/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+
 case ${OSTYPE} in
   darwin*)
-    export PATH="~/Library/Python/3.7/bin:/usr/local/opt/ruby/bin:$PATH"
+    # export PATH="~/Library/Python/3.7/bin:/usr/local/opt/ruby/bin:$PATH"
     export LDFLAGS="-L/usr/local/opt/ruby/lib"
     export CPPFLAGS="-I/usr/local/opt/ruby/include"
     export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
@@ -13,14 +16,6 @@ case ${OSTYPE} in
   linux*)
     ;;
 esac
-
-export PATH=~/go/bin:~/.local/bin:$PATH
-
-source ~/.zplug/init.zsh
-
-[[ -d ~/.rbenv  ]] && \
-  export PATH=${HOME}/.rbenv/bin:${PATH} && \
-  eval "$(rbenv init -)"
 
 # 256をうまい事設定してくれる
 zplug "chrissicool/zsh-256color"
@@ -104,18 +99,6 @@ bindkey "^S" history-incremental-search-forward
 autoload -U compinit
 compinit
 
-[[ -s /usr/local/bin/aws_zsh_completer.sh ]] && source /usr/local/bin/aws_zsh_completer.sh
-[[ -s ~/.local/bin/aws_zsh_completer.sh ]] && source ~/.local/bin/aws_zsh_completer.sh
-
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source $(which assume-role)
-
-[ -d ~/.composer/vendor/bin ] && export PATH=~/.composer/vendor/bin:$PATH
-[ -d ~/.config/composer/vendor/bin ] && export PATH=~/.config/composer/vendor/bin:$PATH
-
 case ${OSTYPE} in
     darwin*)
         source ~/dotfiles/zshrc.darwin
@@ -129,3 +112,15 @@ source ${HOME}/.aliases
 
 # The next line updates PATH for Netlify's Git Credential Helper.
 if [ -f '~/.netlify/helper/path.zsh.inc' ]; then source '~/.netlify/helper/path.zsh.inc'; fi
+
+# completer
+[[ -s /usr/local/bin/aws_zsh_completer.sh ]] && source /usr/local/bin/aws_zsh_completer.sh
+[[ -s ~/.local/bin/aws_zsh_completer.sh ]] && source ~/.local/bin/aws_zsh_completer.sh
+
+# travis
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source $(which assume-role)
