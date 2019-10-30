@@ -7,7 +7,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 
 case ${OSTYPE} in
   darwin*)
-    # export PATH="~/Library/Python/3.7/bin:/usr/local/opt/ruby/bin:$PATH"
     export LDFLAGS="-L/usr/local/opt/ruby/lib"
     export CPPFLAGS="-I/usr/local/opt/ruby/include"
     export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
@@ -99,6 +98,16 @@ bindkey "^S" history-incremental-search-forward
 autoload -U compinit
 compinit
 
+#
+# plugins
+#
+
+source $(which assume-role)
+
+[ -d ~/Library/Python/3.7/bin ] && export PATH=~/Library/Python/3.7/bin:$PATH
+[ -d ~/.composer/vendor/bin ] && export PATH=~/.composer/vendor/bin:$PATH
+[ -d ~/.config/composer/vendor/bin ] && export PATH=~/.config/composer/vendor/bin:$PATH
+
 case ${OSTYPE} in
     darwin*)
         source ~/dotfiles/zshrc.darwin
@@ -123,4 +132,27 @@ if [ -f '~/.netlify/helper/path.zsh.inc' ]; then source '~/.netlify/helper/path.
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source $(which assume-role)
+bindkey '^xb' anyframe-widget-cdr
+bindkey '^x^b' anyframe-widget-checkout-git-branch
+
+bindkey '^xr' anyframe-widget-execute-history
+bindkey '^x^r' anyframe-widget-execute-history
+
+bindkey '^xp' anyframe-widget-put-history
+bindkey '^x^p' anyframe-widget-put-history
+
+bindkey '^xg' anyframe-widget-cd-ghq-repository
+bindkey '^x^g' anyframe-widget-cd-ghq-repository
+
+bindkey '^xk' anyframe-widget-kill
+bindkey '^x^k' anyframe-widget-kill
+
+bindkey '^xi' anyframe-widget-insert-git-branch
+bindkey '^x^i' anyframe-widget-insert-git-branch
+
+bindkey '^xf' anyframe-widget-insert-filename
+bindkey '^x^f' anyframe-widget-insert-filename
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true

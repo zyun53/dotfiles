@@ -38,6 +38,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'joonty/vdebug'
 Plug 'junegunn/vim-easy-align'
+Plug 'AndrewRadev/linediff.vim'
 
 Plug 'thinca/vim-quickrun'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
