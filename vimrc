@@ -38,6 +38,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'joonty/vdebug'
 Plug 'junegunn/vim-easy-align'
+Plug 'AndrewRadev/linediff.vim'
 
 Plug 'thinca/vim-quickrun'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -68,6 +69,13 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 " sql
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/SQLUtilities'
+
+" language server
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'ryanolsonx/vim-lsp-typescript'
 
 " Initialize plugin system
 call plug#end()
@@ -289,3 +297,15 @@ vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
 " Extract method from selection
 vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
 autocmd FileType php setlocal omnifunc=phpactor#Complete
+
+
+
+" typescript language server
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript', 'typescript.tsx'],
+        \ })
+endif
