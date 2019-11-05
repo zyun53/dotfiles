@@ -16,6 +16,7 @@ scriptencoding utf-8
 
 " Plugins. {{{
 
+" Plug {{{
 if !filereadable(expand('~/.vim/autoload/plug.vim'))
   if !executable("curl")
     echoerr "You have to install curl or first install vim-plug yourself!"
@@ -27,11 +28,14 @@ if !filereadable(expand('~/.vim/autoload/plug.vim'))
   let g:not_finish_vimplug = "yes"
   autocmd VimEnter * PlugInstall
 endif
-
 call plug#begin('~/.vim/plugged')
+" }}}
 
+" color {{{
 Plug 'altercation/vim-colors-solarized'
+" }}}
 
+" Utils {{{
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -40,20 +44,50 @@ Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'airblade/vim-gitgutter'
+
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'rhysd/accelerated-jk'
+" }}}
 
-" language server
+" Languages {{{
+Plug 'cespare/vim-toml'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'hashivim/vim-terraform'
+Plug 'leafgarland/typescript-vim'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'stephpy/vim-yaml'
+Plug 'vim-jp/cpp-vim'
+Plug 'vim-jp/vimdoc-ja'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/sh.vim--Cla'
+" }}}
+
+" Completions {{{
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'ryanolsonx/vim-lsp-typescript'
+" }}}
 
 call plug#end()
+
+filetype plugin indent on
+
+" vim-markdown
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_style_pythonic = 1
+
+" nerdtree {{{
+map <C-n> :NERDTreeToggle<CR>
+" }}}
 
 " vim-lsp {{{
 if executable('pyls')
@@ -73,6 +107,12 @@ if executable('typescript-language-server')
         \ 'whitelist': ['typescript', 'typescript.tsx'],
         \ })
 endif
+" }}}
+
+" asyncomplete.vim {{{
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 " }}}
 
 " accelerated-jk {{{
