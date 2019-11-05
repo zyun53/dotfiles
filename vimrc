@@ -1,7 +1,20 @@
-"vim-plug -----------------------------
+" vim: foldmethod=marker
+
+set nocompatible
+
+" Encoding. {{{
 if has('vim_starting')
-  set nocompatible
+    " Changing encoding in Vim at runtime is undefined behavior.
+    set encoding=utf-8
+    set fileencodings=utf-8,sjis,cp932,euc-jp
+    set fileformats=unix,mac,dos
 endif
+
+" This command has to be after `set encoding`.
+scriptencoding utf-8
+" }}}
+
+" Plugins. {{{
 
 if !filereadable(expand('~/.vim/autoload/plug.vim'))
   if !executable("curl")
@@ -36,9 +49,11 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'joonty/vdebug'
+" Plug 'joonty/vdebug'
 Plug 'junegunn/vim-easy-align'
 Plug 'AndrewRadev/linediff.vim'
+
+Plug 'rhysd/accelerated-jk'
 
 Plug 'thinca/vim-quickrun'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -49,8 +64,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'sheerun/vim-polyglot'
-Plug 'Valloric/YouCompleteMe'
-Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
 " html
@@ -70,104 +83,19 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/SQLUtilities'
 
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 " language server
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-neosnippet'
+
 Plug 'ryanolsonx/vim-lsp-typescript'
 
 " Initialize plugin system
 call plug#end()
-"End vim-plug -------------------------
-
-" ----------------------------------------------------------------------------
-" OPTIONS
-" ----------------------------------------------------------------------------
-
-set autoindent              " Carry over indenting from previous line
-set autoread                " Don't bother me hen a file changes
-set autowrite               " Write on :next/:prev/^Z
-set backspace=indent,eol,start
-                            " Allow backspace beyond insertion point
-set cindent                 " Automatic program indenting
-set cinkeys-=0#             " Comments don't fiddle with indenting
-set cino=                   " See :h cinoptions-values
-set commentstring=\ \ #%s   " When folds are created, add them to this
-set copyindent              " Make autoindent use the same chars as prev line
-set directory-=.            " Don't store temp files in cwd
-set encoding=utf8           " UTF-8 by default
-set expandtab               " No tabs
-set fileformats=unix,dos,mac  " Prefer Unix
-set fillchars=vert:\ ,stl:\ ,stlnc:\ ,fold:-,diff:┄
-                            " Unicode chars for diffs/folds, and rely on
-                            " Colors for window borders
-silent! set foldmethod=marker " Use braces by default
-set formatoptions=tcqn1     " t - autowrap normal text
-                            " c - autowrap comments
-                            " q - gq formats comments
-                            " n - autowrap lists
-                            " 1 - break _before_ single-letter words
-                            " 2 - use indenting from 2nd line of para
-set hidden                  " Don't prompt to save hidden windows until exit
-set history=200             " How many lines of history to save
-set hlsearch                " Hilight searching
-set ignorecase              " Case insensitive
-set incsearch               " Search as you type
-set infercase               " Completion recognizes capitalization
-set laststatus=2            " Always show the status bar
-set linebreak               " Break long lines by word, not char
-set list                    " Show whitespace as special chars - see listchars
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:· " Unicode characters for various things
-set matchtime=2             " Tenths of second to hilight matching paren
-set modelines=5             " How many lines of head & tail to look for ml's
-silent! set mouse=nvc       " Use the mouse, but not in insert mode
-set nobackup                " No backups left after done editing
-set number                " No line numbers to start
-set visualbell t_vb=        " No flashing or beeping at all
-set nowritebackup           " No backups made while editing
-set printoptions=paper:letter " US paper
-set ruler                   " Show row/col and percentage
-set scroll=4                " Number of lines to scroll with ^U/^D
-set scrolloff=15            " Keep cursor away from this many chars top/bot
-set sessionoptions-=options " Don't save runtimepath in Vim session (see tpope/vim-pathogen docs)
-set shiftround              " Shift to certain columns, not just n spaces
-set shiftwidth=2            " Number of spaces to shift for autoindent or >,<
-set shortmess+=A            " Don't bother me when a swapfile exists
-set showbreak=              " Show for lines that have been wrapped, like Emacs
-set showmatch               " Hilight matching braces/parens/etc.
-set sidescrolloff=3         " Keep cursor away from this many chars left/right
-set smartcase               " Lets you search for ALL CAPS
-set softtabstop=2           " Spaces 'feel' like tabs
-set suffixes+=.pyc          " Ignore these files when tab-completing
-set tabstop=2               " The One True Tab
-set textwidth=100           " 100 is the new 80
-set thesaurus+=~/.vim/mthes10/mthesaur.txt
-set notitle                 " Don't set the title of the Vim window
-set wildmenu                " Show possible completions on command line
-set wildmode=list:longest,full " List all options and complete
-set wildignore=*.class,*.o,*~,*.pyc,.git,node_modules  " Ignore certain files in tab-completion
-
-" ----------------------------------------------------------------------------
-" Configurations
-" ----------------------------------------------------------------------------
-
-let mapleader = "\<Space>"
-
-nmap ; :Buffers<CR>
-nmap <Leader>r :Tags<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>a :Ag<CR>
-
-nmap j gj
-nmap k gk
-
-set background=dark
-colorscheme solarized
-
-" ----------------------------------------------------------------------------
-" Plugin
-" ----------------------------------------------------------------------------
 
 " ack.vim
 if executable('ag')
@@ -249,24 +177,7 @@ augroup vimrc-python
 augroup END
 
 
-"" youcompleteme
-let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
-let g:ycm_auto_trigger = 1
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:make = 'gmake'
-if exists('make')
-  let g:make = 'make'
-endif
-
-"""
-""" phpactor
-"""
+" phpactor {{{
 " Include use statement
 nmap <Leader>u :call phpactor#UseAdd()<CR>
 
@@ -296,16 +207,124 @@ vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
 
 " Extract method from selection
 vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
-autocmd FileType php setlocal omnifunc=phpactor#Complete
+autocmd FileType php setlocal omnifunc=phpactor#Complete " }}}
 
-
-
-" typescript language server
+" typescript language server {{{
 if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
+    au User lsp_setup call lsp#register_server({
         \ 'name': 'typescript-language-server',
         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
         \ 'whitelist': ['typescript', 'typescript.tsx'],
         \ })
-endif
+endif " }}}
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+" }}}
+
+" Indent. {{{
+set autoindent
+set backspace=2
+"set backspace=indent,eol,start
+set breakindent
+set expandtab
+set shiftwidth=4
+set smartindent
+set tabstop=4
+" }}}
+
+" Search. {{{
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+" }}}
+
+" History {{{
+set history=2048
+set undodir=~/.vim/undo
+set undofile
+set viewoptions=cursor,folds
+" }}}
+
+" Appearance. {{{
+set ambiwidth=double
+set cmdheight=2
+set conceallevel=2
+set cursorline
+set display=lastline
+set laststatus=2
+set list
+set listchars=tab:>\ ,trail:\ ,extends:<,precedes:<,nbsp:%
+set noarabicshape
+set nowrap
+set number
+set scrolloff=3
+set showcmd
+set showmatch
+set showtabline=2
+set signcolumn=yes
+set statusline=%<%F\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%=%l/%L,%c%V%8P
+set synmaxcol=512
+" }}}
+
+" Folding. {{{
+set foldenable
+set foldcolumn=1
+set foldmethod=indent
+set foldtext=Mopp_fold_text()
+" }}}
+
+" Safety. {{{
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
+set swapfile
+set writebackup
+" }}}
+
+" Functions {{{
+function! Mopp_fold_text() abort " {{{
+    let l:head = getline(v:foldstart)
+    if &foldmethod !=# 'marker'
+        let l:head = '+' . repeat('-', &shiftwidth * v:foldlevel - 2) . ' ' . substitute(l:head, '^\s*', '', '')
+    endif
+
+    let l:tail = printf('[ %2d Lines Lv%02d ]', (v:foldend - v:foldstart + 1), v:foldlevel)
+    let l:count_columns = &foldcolumn + (&number ? max([&numberwidth, strdisplaywidth(line('$'))]) : 0) + (&signcolumn ==# 'no' ? 0 : 2)
+    let l:spaces = repeat(' ', winwidth(0) - l:count_columns - strdisplaywidth(l:head) - strdisplaywidth(l:tail)- 1)
+    return l:head . l:spaces . l:tail
+endfunction " }}}
+" }}}
+
+" Mappings. {{{
+
+"---------------------------------------------------------------------------"
+" Commands \ Modes | Normal | Insert | Command | Visual | Select | Operator |
+"------------------|--------|--------|---------|--------|--------|----------|
+" map  / noremap   |    @   |   -    |    -    |   @    |   @    |    @     |
+" nmap / nnoremap  |    @   |   -    |    -    |   -    |   -    |    -     |
+" vmap / vnoremap  |    -   |   -    |    -    |   @    |   @    |    -     |
+" omap / onoremap  |    -   |   -    |    -    |   -    |   -    |    @     |
+" xmap / xnoremap  |    -   |   -    |    -    |   @    |   -    |    -     |
+" smap / snoremap  |    -   |   -    |    -    |   -    |   @    |    -     |
+" map! / noremap!  |    -   |   @    |    @    |   -    |   -    |    -     |
+" imap / inoremap  |    -   |   @    |    -    |   -    |   -    |    -     |
+" cmap / cnoremap  |    -   |   -    |    @    |   -    |   -    |    -     |
+"---------------------------------------------------------------------------"
+let mapleader = "\<Space>"
+
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
+
+nmap ; :Buffers<CR>
+nmap <Leader>r :Tags<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>a :Ag<CR>
+" }}}
+
+syntax enable
+colorscheme solarized
+set background=dark
