@@ -90,6 +90,12 @@ map <C-n> :NERDTreeToggle<CR>
 " }}}
 
 " vim-lsp {{{
+let g:lsp_diagnostics_enabled = 0
+" debug
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/.vim/vim-lsp.log')
+let g:asyncomplete_log_file = expand('~/.vim/asyncomplete.log')
+
 if executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
@@ -107,6 +113,23 @@ if executable('typescript-language-server')
         \ 'whitelist': ['typescript', 'typescript.tsx'],
         \ })
 endif
+
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'javascript support using typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
+        \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact'],
+        \ })
+endif
+
+" npm -g install intelephense
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'intelephense',
+    \ 'cmd': {server_info->['node', expand('/usr/local/lib/node_modules/intelephense/lib/intelephense.js'), '--stdio']},
+    \ 'initialization_options': {"storagePath": "/usr/local/lib/node_modules/intelephense"},
+    \ 'whitelist': ['php'],
+    \ })
 " }}}
 
 " asyncomplete.vim {{{
