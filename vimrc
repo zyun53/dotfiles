@@ -1,6 +1,31 @@
 " vim: foldmethod=marker
+"
+" Special thanks!!
+" https://github.com/statico/dotfiles/blob/master/.vim/vimrc
+" https://github.com/mopp/dotfiles/blob/master/.vimrc
 
 set nocompatible
+
+" Mappings. {{{
+
+"---------------------------------------------------------------------------"
+" Commands \ Modes | Normal | Insert | Command | Visual | Select | Operator |
+"------------------|--------|--------|---------|--------|--------|----------|
+" map  / noremap   |    @   |   -    |    -    |   @    |   @    |    @     |
+" nmap / nnoremap  |    @   |   -    |    -    |   -    |   -    |    -     |
+" vmap / vnoremap  |    -   |   -    |    -    |   @    |   @    |    -     |
+" omap / onoremap  |    -   |   -    |    -    |   -    |   -    |    @     |
+" xmap / xnoremap  |    -   |   -    |    -    |   @    |   -    |    -     |
+" smap / snoremap  |    -   |   -    |    -    |   -    |   @    |    -     |
+" map! / noremap!  |    -   |   @    |    @    |   -    |   -    |    -     |
+" imap / inoremap  |    -   |   @    |    -    |   -    |   -    |    -     |
+" cmap / cnoremap  |    -   |   -    |    @    |   -    |   -    |    -     |
+"---------------------------------------------------------------------------"
+
+" Set <Leader> and <LocalLeader>.
+let g:mapleader = "\<Space>"
+let g:maplocalleader = '\'
+" }}}
 
 " Encoding. {{{
 if has('vim_starting')
@@ -49,6 +74,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'rhysd/accelerated-jk'
+
+Plug 'editorconfig/editorconfig-vim'
 " }}}
 
 " Languages {{{
@@ -84,6 +111,14 @@ filetype plugin indent on
 " vim-markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_style_pythonic = 1
+
+" fzf {{{
+nmap ; :Buffers<CR>
+nmap <Leader>r :Tags<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>a :Rg!<CR>
+nmap <Leader>c :Colors<CR>
+" }}}
 
 " nerdtree {{{
 map <C-n> :NERDTreeToggle<CR>
@@ -217,27 +252,6 @@ function! Mopp_fold_text() abort " {{{
     let l:spaces = repeat(' ', winwidth(0) - l:count_columns - strdisplaywidth(l:head) - strdisplaywidth(l:tail)- 1)
     return l:head . l:spaces . l:tail
 endfunction " }}}
-" }}}
-
-" Mappings. {{{
-
-"---------------------------------------------------------------------------"
-" Commands \ Modes | Normal | Insert | Command | Visual | Select | Operator |
-"------------------|--------|--------|---------|--------|--------|----------|
-" map  / noremap   |    @   |   -    |    -    |   @    |   @    |    @     |
-" nmap / nnoremap  |    @   |   -    |    -    |   -    |   -    |    -     |
-" vmap / vnoremap  |    -   |   -    |    -    |   @    |   @    |    -     |
-" omap / onoremap  |    -   |   -    |    -    |   -    |   -    |    @     |
-" xmap / xnoremap  |    -   |   -    |    -    |   @    |   -    |    -     |
-" smap / snoremap  |    -   |   -    |    -    |   -    |   @    |    -     |
-" map! / noremap!  |    -   |   @    |    @    |   -    |   -    |    -     |
-" imap / inoremap  |    -   |   @    |    -    |   -    |   -    |    -     |
-" cmap / cnoremap  |    -   |   -    |    @    |   -    |   -    |    -     |
-"---------------------------------------------------------------------------"
-
-" Set <Leader> and <LocalLeader>.
-let g:mapleader      = ' '
-let g:maplocalleader = '\'
 " }}}
 
 syntax enable
