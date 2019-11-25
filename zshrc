@@ -2,8 +2,8 @@ export LANG="en_US.UTF-8"
 
 source ~/.zplug/init.zsh
 
-export PATH="~/go/bin:$PATH"
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
 
 case ${OSTYPE} in
   darwin*)
