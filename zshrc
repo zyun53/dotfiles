@@ -42,6 +42,8 @@ zplug "modules/ssh",        from:prezto
 zplug "modules/terminal",   from:prezto
 zplug "modules/directory",  from:prezto
 
+zplug "b4b4r07/easy-oneliner", if:"which fzf"
+
 # theme (https://github.com/sindresorhus/pure#zplug)
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
@@ -64,6 +66,8 @@ zplug "motemen/ghq", as:command, from:gh-r
 # pythonのvenvを自動切換え
 zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
 
+zplug "docker/compose", use:contrib/completion/zsh
+zplug "git/git", use:contrib/completion/git-completion.zsh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -156,3 +160,5 @@ bindkey '^x^f' anyframe-widget-insert-filename
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+export EASY_ONE_REFFILE=$HOME/dotfiles/easy-oneliner.txt
