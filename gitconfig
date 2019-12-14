@@ -19,8 +19,5 @@
   required = true
 [include]
   path = ~/.gitconfig.local
-  path = ~/.netlify/helper/git-config
 [ghq]
   root = ~/src
-[commit]
-  template = ~/.git-commit-template
