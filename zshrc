@@ -61,8 +61,6 @@ zplug "coinbase/assume-role", \
 zplug "greymd/tmux-xpanes"
 # fzf でよく使う関数の詰め合わせ
 zplug "mollifier/anyframe"
-# git のローカルリポジトリを一括管理（fzf でリポジトリへジャンプ）
-zplug "motemen/ghq", as:command, from:gh-r
 # pythonのvenvを自動切換え
 zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
 
@@ -105,8 +103,6 @@ compinit
 #
 # plugins
 #
-
-source $(which assume-role)
 
 [ -d ~/Library/Python/3.7/bin ] && export PATH=~/Library/Python/3.7/bin:$PATH
 [ -d ~/.composer/vendor/bin ] && export PATH=~/.composer/vendor/bin:$PATH
