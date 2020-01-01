@@ -6,7 +6,7 @@
 
 set nocompatible
 
-" Mappings. {{{
+" Mappings {{{
 
 "---------------------------------------------------------------------------"
 " Commands \ Modes | Normal | Insert | Command | Visual | Select | Operator |
@@ -27,7 +27,7 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = '\'
 " }}}
 
-" Encoding. {{{
+" Encoding {{{
 if has('vim_starting')
     " Changing encoding in Vim at runtime is undefined behavior.
     set encoding=utf-8
@@ -38,8 +38,6 @@ endif
 " This command has to be after `set encoding`.
 scriptencoding utf-8
 " }}}
-
-" Plugins. {{{
 
 " Plug {{{
 if !filereadable(expand('~/.vim/autoload/plug.vim'))
@@ -54,13 +52,11 @@ if !filereadable(expand('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall
 endif
 call plug#begin('~/.vim/plugged')
-" }}}
 
-" color {{{
+" color
 Plug 'altercation/vim-colors-solarized'
-" }}}
 
-" Utils {{{
+" Utils
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -76,9 +72,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/accelerated-jk'
 
 Plug 'editorconfig/editorconfig-vim'
-" }}}
 
-" Languages {{{
+" Languages
 Plug 'cespare/vim-toml'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
@@ -94,23 +89,36 @@ Plug 'vim-jp/cpp-vim'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/sh.vim--Cla'
-" }}}
 
-" Completions {{{
-Plug 'prabirshrestha/asyncomplete.vim'
+" Completions 
 Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'ryanolsonx/vim-lsp-typescript'
-" }}}
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'mattn/vim-lsp-icons'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 call plug#end()
 
 filetype plugin indent on
+" }}}
 
-" vim-markdown
+" lsp-settings {{{
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 0
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 1
+" }}}
+
+" vim-markdown {{{
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_conceal_code_blocks = 0
+" }}}
 
 " fzf {{{
 nmap ; :Buffers<CR>
@@ -124,59 +132,9 @@ nmap <Leader>c :Colors<CR>
 map <C-n> :NERDTreeToggle<CR>
 " }}}
 
-" vim-lsp {{{
-let g:lsp_diagnostics_enabled = 0
-" debug
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand('~/.vim/vim-lsp.log')
-let g:asyncomplete_log_file = expand('~/.vim/asyncomplete.log')
-
-if executable('pyls')
-    " pip install python-language-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'typescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript', 'typescript.tsx'],
-        \ })
-endif
-
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'javascript support using typescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
-        \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact'],
-        \ })
-endif
-
-" npm -g install intelephense
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'intelephense',
-    \ 'cmd': {server_info->['node', expand('/usr/local/lib/node_modules/intelephense/lib/intelephense.js'), '--stdio']},
-    \ 'initialization_options': {"storagePath": "/usr/local/lib/node_modules/intelephense"},
-    \ 'whitelist': ['php'],
-    \ })
-" }}}
-
-" asyncomplete.vim {{{
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-" }}}
-
 " accelerated-jk {{{
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
-" }}}
 " }}}
 
 " Indent. {{{
