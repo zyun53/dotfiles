@@ -16,35 +16,29 @@ case ${OSTYPE} in
     ;;
 esac
 
-# 256をうまい事設定してくれる
-zplug "chrissicool/zsh-256color"
-
 # 補完を更に強化する
 # pacman や yaourt のパッケージリストも補完するようになる
 zplug "zsh-users/zsh-completions"
+# コマンドを種類ごとに色付け
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# ヒストリの補完を強化する
+# zplug "zsh-users/zsh-history-substring-search", defer:3
 
 # git の補完を効かせる
 # 補完＆エイリアスが追加される
 zplug "plugins/git",   from:oh-my-zsh
 zplug "peterhurford/git-aliases.zsh"
 
-# 入力途中に候補をうっすら表示
-zplug "zsh-users/zsh-autosuggestions"
-# コマンドを種類ごとに色付け
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-# ヒストリの補完を強化する
-zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "plugins/aws",   from:oh-my-zsh
 
 zplug "modules/tmux",       from:prezto
-zplug "modules/history",    from:prezto
 zplug "modules/utility",    from:prezto
 zplug "modules/ssh",        from:prezto
-zplug "modules/terminal",   from:prezto
 zplug "modules/directory",  from:prezto
 
 zplug "b4b4r07/easy-oneliner", if:"which fzf"
 
-# theme (https://github.com/sindresorhus/pure#zplug)
+# pure theme (https://github.com/sindresorhus/pure#zplug)
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
@@ -64,22 +58,11 @@ zplug "mollifier/anyframe"
 # pythonのvenvを自動切換え
 zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
 
-zplug "docker/compose", use:contrib/completion/zsh
-zplug "git/git", use:contrib/completion/git-completion.zsh
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
 # Then, source plugins and add commands to $PATH
 zplug load
 
 export HISTFILE=${HOME}/.zsh_history # 履歴ファイルの保存先
-export HISTSIZE=1000 # メモリに保存される履歴の件数
+export HISTSIZE=100000 # メモリに保存される履歴の件数
 export SAVEHIST=100000 # 履歴ファイルに保存される履歴の件数
 setopt hist_ignore_dups # 重複を記録しない
 setopt EXTENDED_HISTORY # 開始と終了を記録
@@ -94,10 +77,12 @@ setopt hist_expand # 補完時にヒストリを自動的に展開
 setopt inc_append_history # 履歴をインクリメンタルに追加
 
 # インクリメンタルからの検索
-bindkey "^R" history-incremental-search-backward
-bindkey "^S" history-incremental-search-forward
+#bindkey "^R" history-incremental-search-backward
+#bindkey "^S" history-incremental-search-forward
 
 autoload -U compinit
+autoload -U bashcompinit
+bashcompinit
 compinit
 
 #
@@ -121,10 +106,6 @@ source ${HOME}/.aliases
 
 # The next line updates PATH for Netlify's Git Credential Helper.
 if [ -f '~/.netlify/helper/path.zsh.inc' ]; then source '~/.netlify/helper/path.zsh.inc'; fi
-
-# completer
-[[ -s /usr/local/bin/aws_zsh_completer.sh ]] && source /usr/local/bin/aws_zsh_completer.sh
-[[ -s ~/.local/bin/aws_zsh_completer.sh ]] && source ~/.local/bin/aws_zsh_completer.sh
 
 # travis
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
@@ -158,3 +139,5 @@ bindkey '^x^f' anyframe-widget-insert-filename
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 export EASY_ONE_REFFILE=$HOME/dotfiles/easy-oneliner.txt
+
+complete -C aws_completer aws
