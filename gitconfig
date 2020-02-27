@@ -1,3 +1,5 @@
+[include]
+  path = ~/.gitconfig.local
 [core]
   editor = vim -c \"set fenc=utf-8\"
 [alias]
@@ -17,7 +19,5 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-[include]
-  path = ~/.gitconfig.local
 [ghq]
   root = ~/src

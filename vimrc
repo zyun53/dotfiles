@@ -101,6 +101,8 @@ Plug 'mattn/vim-lsp-icons'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 
+Plug 'thiagoalmeidasa/vim-ansible-vault'
+
 call plug#end()
 
 filetype plugin indent on
