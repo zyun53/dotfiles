@@ -83,12 +83,15 @@ Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'stephpy/vim-yaml'
 Plug 'vim-jp/cpp-vim'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/sh.vim--Cla'
+
+Plug 'previm/previm'
 
 " Completions 
 Plug 'prabirshrestha/async.vim'
@@ -113,6 +116,10 @@ let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:asyncomplete_auto_popup = 1
 let g:lsp_text_edit_enabled = 1
+
+let g:lsp_settings = {
+\  'yaml-language-server': {'disabled': v:false}
+\}
 " }}}
 
 " vim-markdown {{{
@@ -214,3 +221,6 @@ endfunction " }}}
 syntax enable
 colorscheme solarized
 set background=dark
+
+
+let g:previm_open_cmd = 'open -a Google\ Chrome'
