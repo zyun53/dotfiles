@@ -1,24 +1,27 @@
-[include]
-  path = ~/.gitconfig.local
 [core]
-  editor = vim -c \"set fenc=utf-8\"
+    editor = vim -c \"set fenc=utf-8\"
 [alias]
-  it = !git init && git commit -m root --allow-empty
-  df = diff
-  dff = diff --cached
-  cm = commit
-  st = status
-  sw = switch
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  ph = push origin HEAD
-  rs = restore
+    it = !git init && git commit -m root --allow-empty
+    df = diff
+    dff = diff --cached
+    cm = commit
+    st = status
+    sw = switch
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    ph = push origin HEAD
+    rs = restore
+    identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 [gpg]
-  program = gpg
+    program = gpg
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [ghq]
-  root = ~/src
+    root = ~/src
+[user]
+    useConfigOnly = true
+[include]
+    path = ~/.gitconfig.local
