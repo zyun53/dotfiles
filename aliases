@@ -5,3 +5,4 @@ alias stt='git status -uno'
 alias vi='vim'
 alias v='vim'
 alias lg='lazygit'
+alias typora="open -a typora"
