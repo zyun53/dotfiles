@@ -4,6 +4,10 @@
 
 * [ghq](https://github.com/motemen/ghq)
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
+* git
+* tmux
+* zsh
+* python3
 
 ## vim
 

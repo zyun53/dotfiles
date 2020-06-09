@@ -1,5 +1,2 @@
-[credential]
-    helper = store
-[user]
-    name = Isida Zyun'iti
-    email = zyun@moin.jp
+# [credential]
+#     helper = store
