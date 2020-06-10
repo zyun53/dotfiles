@@ -12,7 +12,7 @@ autoload -Uz _zinit
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
-zinit load zdharma/history-search-multi-word
+zinit light zdharma/history-search-multi-word
 
 # theme
 zinit ice pick"async.zsh" src"pure.zsh"
@@ -29,10 +29,22 @@ zinit for \
                 sindresorhus/pure
 
 zinit ice from"gh-r" as"program"
-zinit load junegunn/fzf-bin
+zinit light junegunn/fzf-bin
 
-zinit ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
-zinit light tj/git-extras
+zinit snippet PZT::modules/helper/init.zsh
+zinit snippet PZT::modules/tmux/init.zsh
+zinit snippet PZT::modules/utility/init.zsh
+zinit snippet PZT::modules/ssh/init.zsh
+zinit snippet PZT::modules/directory/init.zsh
+
+zinit ice blockf
+zinit light zsh-users/zsh-completions
+
+zinit ice as"completion"
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
+zinit snippet OMZP::git
+zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 
 # anyframe
 zinit light mollifier/anyframe
