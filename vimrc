@@ -125,6 +125,11 @@ let g:lsp_settings = {
 " vim-markdown {{{
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_frontmatter = 1
+" }}}
+
+" previm {{{
+let g:previm_open_cmd = 'open -a Google\ Chrome'
 " }}}
 
 " fzf {{{
@@ -221,6 +226,3 @@ endfunction " }}}
 syntax enable
 colorscheme solarized
 set background=dark
-
-
-let g:previm_open_cmd = 'open -a Google\ Chrome'

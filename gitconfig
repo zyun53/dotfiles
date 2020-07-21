@@ -25,6 +25,10 @@
     path = ~/.gitconfig.local
 [user]
     useConfigOnly = true
+[pull]
+    ff = only
+[credential]
+    helper = osxkeychain
 [user "identity1"]
     name = Your Name
     email = identity4@example
