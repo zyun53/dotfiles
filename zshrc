@@ -51,6 +51,8 @@ zinit light junegunn/fzf-bin
 
 zinit light MichaelAquilina/zsh-autoswitch-virtualenv
 
+zinit light greymd/tmux-xpanes
+
 zinit snippet PZT::modules/helper
 zinit snippet PZT::modules/tmux
 zinit snippet PZT::modules/utility
