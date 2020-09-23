@@ -35,3 +35,5 @@
     name = Your Name
     email = identity4@example
     signingkey = D921F8BA473CF1FC
+[pull]
+    ff = only

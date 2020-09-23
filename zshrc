@@ -46,8 +46,9 @@ zinit for \
     light-mode pick"async.zsh" src"pure.zsh" \
                 sindresorhus/pure
 
-zinit ice from"gh-r" as"program"
-zinit light junegunn/fzf-bin
+#zinit ice from"gh-r" as"program"
+#zinit light junegunn/fzf-bin
+zinit pack for fzf
 
 zinit light MichaelAquilina/zsh-autoswitch-virtualenv
 
@@ -67,6 +68,8 @@ zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_
 
 zinit snippet OMZP::git
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+
+zinit light greymd/tmux-xpanes
 
 # anyframe
 zinit light mollifier/anyframe
@@ -92,6 +95,13 @@ bindkey '^x^k' anyframe-widget-kill
 bindkey '^xe' anyframe-widget-insert-git-branch
 bindkey '^x^e' anyframe-widget-insert-git-branch
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+fpath+=~/.zfunc
+
+
+
 autoload -Uz compinit
 compinit
 
@@ -100,3 +110,16 @@ zinit cdreplay -q   # -q is for quiet; actually run all the `compdef's saved bef
                     # it cannot be used until `compinit' is ran; Zinit solves this
                     # via intercepting the `compdef'-calls and storing them for later
                     # use with `zinit cdreplay')
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/slss.zsh

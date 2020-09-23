@@ -106,6 +106,8 @@ Plug 'hrsh7th/vim-vsnip-integ'
 
 Plug 'thiagoalmeidasa/vim-ansible-vault'
 
+Plug 'MattesGroeger/vim-bookmarks'
+
 call plug#end()
 
 filetype plugin indent on
@@ -113,7 +115,7 @@ filetype plugin indent on
 
 " lsp-settings {{{
 let g:lsp_diagnostics_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
+"let g:lsp_diagnostics_echo_cursor = 1
 let g:asyncomplete_auto_popup = 1
 let g:lsp_text_edit_enabled = 1
 
