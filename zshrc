@@ -97,10 +97,7 @@ bindkey '^x^e' anyframe-widget-insert-git-branch
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 fpath+=~/.zfunc
-
-
 
 autoload -Uz compinit
 compinit
@@ -113,13 +110,3 @@ zinit cdreplay -q   # -q is for quiet; actually run all the `compdef's saved bef
 
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/j-ishida/src/github.com/seratch/slack-app-examples/serverless-bolt-template/aws-ts/node_modules/tabtab/.completions/slss.zsh

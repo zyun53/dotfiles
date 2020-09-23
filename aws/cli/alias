@@ -14,7 +14,7 @@ upgrade = !f() {
     rm -f /tmp/AWSCLIV2.pkg
   }; f
 
-check-upgrade = !f() { 
+check-upgrade = !f() {
     rm -f /tmp/AWSCLIV2.pkg
     latest_cli_version=$(curl -s "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o - | \
     tar xOv - 2>/dev/null | \
