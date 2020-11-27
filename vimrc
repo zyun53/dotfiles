@@ -107,6 +107,8 @@ Plug 'thiagoalmeidasa/vim-ansible-vault'
 
 Plug 'MattesGroeger/vim-bookmarks'
 
+Plug 'glidenote/memolist.vim'
+
 call plug#end()
 
 filetype plugin indent on
