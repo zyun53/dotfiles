@@ -1,8 +1,5 @@
-alias pull='git pull'
-alias push='git push'
-alias st='git status'
-alias stt='git status -uno'
-alias vi='vim'
+alias t='tmux a'
 alias v='vim'
+alias g='git'
 alias lg='lazygit'
 alias typora="open -a typora"
