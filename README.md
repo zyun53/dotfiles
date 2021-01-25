@@ -1,5 +1,32 @@
 # dotfiles
 
+
+プログラミング用日本語等幅フォント Cica
+https://github.com/miiton/Cica
+
+## Ubuntu
+
+vim
+
+git
+$ sudo add-apt-repository ppa:git-core/ppa
+
+gh
+https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+
+go
+
+https://golang.org/doc/install
+tar -C /usr/local -xzf go1.15.7.linux-amd64.tar.gz
+
+
+## macOS
+
+
+* https://cloud.google.com/sdk/docs/install?hl=ja#mac
+* brew install --cask google-cloud-sdk
+* brew install kubectl
+
 ## app
 
 * [ghq](https://github.com/motemen/ghq)

@@ -1,4 +1,32 @@
-# History {{{1
+# vim: foldmethod=marker
+
+# homebrew {{{
+typeset -U path PATH
+path=(
+    /opt/homebrew/bin(N-/)
+    /usr/local/bin(N-/)
+    $path
+)
+
+if [[ "${(L)$( uname -s )}" == darwin ]] && (( $+commands[arch] )); then
+    alias brew="arch -arch x86_64 /usr/local/bin/brew"
+    alias x64='exec arch -arch x86_64 "$SHELL"'
+    alias a64='exec arch -arch arm64e "$SHELL"'
+    switch-arch() {
+        if  [[ "$(uname -m)" == arm64 ]]; then
+            arch=x86_64
+        elif [[ "$(uname -m)" == x86_64 ]]; then
+            arch=arm64e
+        fi
+        exec arch -arch $arch "$SHELL"
+    }
+fi
+
+setopt magic_equal_subst
+# }}}
+
+
+# History {{{
 
 # History environment variables
 HISTFILE=${HOME}/.zsh_history
@@ -171,3 +199,19 @@ bind-git-helper() {
 }
 bind-git-helper f b t r h
 unset -f bind-git-helper
+
+
+
+# ALIAS {{{
+alias t='tmux a'
+alias v='vim'
+alias g='git'
+alias lg='lazygit'
+alias typora="open -a typora"
+alias typora="open -a typora"
+alias dotfiles="cd ~/src/github.com/zyun-i/dotfiles"
+# }}}
+
+. /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+. /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+

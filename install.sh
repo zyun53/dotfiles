@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/bash -x
+
+# mkdir -p ~/.ansible/vault
 
 DOTFILES_PATH=~/src/github.com/zyun-i/dotfiles
 
@@ -11,6 +13,8 @@ gitconfig
 zshrc
 vimrc
 EOF
+
+mkdir -p ~/.vim/backup ~/.vim/swap
 
 # mkdir -p ~/.config/nvim/backup ~/.config/nvim/swap ~/.config/nvim/undo
 # ln -fs ~/dotfiles/zshrc ~/.zshrc
