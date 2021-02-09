@@ -1,5 +1,6 @@
 [core]
   editor = vim -c \"set fenc=utf-8\"
+
 [alias]
   it = !git init && git commit -m root --allow-empty
   df = diff
@@ -36,28 +37,38 @@
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   # add conflicted file on merge
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+
 [ghq]
   root = ~/src
+
 [include]
   path = ~/.gitconfig.local
+
 [user]
   useConfigOnly = true
+
 [pull]
   ff = only
+
 [init]
   defaultBranch = main
+
 [user "zyun"]
   name = Isida Zyun'iti
   email = zyun@moin.jp
   signingkey = 0xB8BCA50F9CE45D19
+
 [credential "https://github.com"]
   helper = !gh auth git-credential
+
 #[commit]
 #  gpgsign = true
+
 [gpg]
   program = gpg
