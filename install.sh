@@ -14,6 +14,8 @@ zshrc
 vimrc
 EOF
 
+ln -fs ${DOTFILES_PATH}/gpg.conf ~/.gnupg/gpg.conf
+
 mkdir -p ~/.vim/backup ~/.vim/swap
 
 # mkdir -p ~/.config/nvim/backup ~/.config/nvim/swap ~/.config/nvim/undo
