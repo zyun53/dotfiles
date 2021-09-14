@@ -72,3 +72,9 @@
 
 [credential "https://github.com"]
     helper = !gh auth git-credential
+
+[credential "https://gitlab.com"]
+    helper = store
+# gitlab
+# zyun
+# HVHr-uJdoHCUSqrPshNv

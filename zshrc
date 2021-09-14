@@ -1,4 +1,5 @@
 # vim: foldmethod=marker
+export PATH=$PATH:/usr/local/go/bin
 
 # homebrew {{{
 typeset -U path PATH
@@ -207,11 +208,10 @@ alias t='tmux a'
 alias v='vim'
 alias g='git'
 alias lg='lazygit'
+alias k='kubectl'
 alias typora="open -a typora"
 alias typora="open -a typora"
 alias dotfiles="cd ~/src/github.com/zyun-i/dotfiles"
+alias diff='colordiff -u'
 # }}}
-
-. /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-. /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-
+source <(kubectl completion zsh)
