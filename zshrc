@@ -1,5 +1,7 @@
 # vim: foldmethod=marker
 
+export LC_CTYPE="en_US.UTF-8"
+
 # zinit init {{{
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -29,17 +31,19 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 # Snippet
-zinit snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
+#zinit snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
 
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
+zinit snippet PZTM::ssh
+
 # }}}
 
 # ALIAS {{{
-alias t='tmux a -d'
+alias t='tmux a -d || tmux'
 alias v='vim'
 alias g='git'
 alias lg='lazygit'
