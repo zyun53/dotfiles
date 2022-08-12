@@ -43,15 +43,20 @@ zinit snippet PZTM::ssh
 # }}}
 
 # ALIAS {{{
-alias t='tmux a -d || tmux'
 alias v='vim'
 alias g='git'
+
 alias lg='lazygit'
 alias k='kubectl'
 alias typora="open -a typora"
 alias typora="open -a typora"
 alias dotfiles="cd ~/src/github.com/zyun-i/dotfiles"
 alias diff='colordiff -u'
+
+alias t='tmux attach || tmux new-session'
+alias ta='tmux attach -t'
+alias tn='tmux new-session'
+alias tl='tmux list-sessions'
 # }}}
 
 # History {{{
