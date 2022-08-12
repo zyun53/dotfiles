@@ -15,7 +15,6 @@ EOF
 ln -fs ${DOTFILES_PATH}/gpg.conf ~/.gnupg/gpg.conf
 ln -fs ${DOTFILES_PATH}/starship.toml ~/.config/starship.toml
 
-mkdir -p ~/.vim/backup ~/.vim/swap
-mkdir -p ~/.config/nvim/backup ~/.config/nvim/swap ~/.config/nvim/undo
+mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
