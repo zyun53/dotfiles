@@ -1,6 +1,10 @@
 [core]
     editor = vim -c \"set fenc=utf-8\"
 
+[user]
+    name = Isida Zyun'iti
+    email = zyun@mituba.org
+
 [init]
     defaultBranch = main
 
@@ -12,9 +16,6 @@
 
 [gpg]
     program = gpg
-
-# [commit]
-#     gpgsign = true
 
 [alias]
     it = !git init && git commit -m root --allow-empty
@@ -56,25 +57,11 @@
 [include]
     path = ~/.gitconfig.local
 
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-
 [ghq]
     root = ~/src
-
-[user "zyun"]
-    name = Isida Zyun'iti
-    email = zyun@moin.jp
-    signingkey = 0xFF59C97FC58450E5
 
 [credential "https://github.com"]
     helper = !gh auth git-credential
 
 [credential "https://gitlab.com"]
     helper = store
-# gitlab
-# zyun
-# HVHr-uJdoHCUSqrPshNv
