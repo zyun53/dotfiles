@@ -1,12 +1,2 @@
-# カスタムフォーマットを利用します
-#format = """
-#[┌───────────────────>](bold green)
-#[│](bold green)$directory$rust$package
-#[└─>](bold green) """
-
-# starshipが現在のディレクトリ下のファイルをチェックするまで10ミリ秒待ちます
-
 scan_timeout = 10
-
-# プロンプトの先頭の空行を無効にします
 add_newline = false

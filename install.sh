@@ -2,6 +2,12 @@
 
 DOTFILES_PATH=~/src/github.com/zyun-i/dotfiles
 
+# vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# brew install deno
+
 while read line
 do
     ln -fs ${DOTFILES_PATH}/${line} ~/.${line}
