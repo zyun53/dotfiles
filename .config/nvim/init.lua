@@ -1,65 +1,13 @@
+vim.g.mapleader = [[ ]]
+vim.g.maplocalleader = [[,]]
+
 require "plugins"
-
-local g = vim.g
-local cmd = vim.cmd
-
--- options
-local opt = vim.opt
-
-opt.mouse = 'a'
-opt.title = true
-opt.ambiwidth = 'double'
-
-opt.swapfile = false
-opt.backup = false
-opt.hidden = true
-opt.clipboard:append({unnamedplus = true})
-
-opt.syntax = 'on'
-opt.incsearch = true
-opt.hlsearch = true
-opt.smartcase = true
-opt.autoindent = true
-opt.ruler = true
-opt.laststatus = 2
-opt.showcmd = true
-opt.wildmenu = true
-opt.virtualedit = 'onemore'
-opt.filetype = "plugin", "indent","on"
-opt.so = 5
-opt.cursorline = true
-opt.hidden = true
-
-opt.number = true
-opt.list = true
-opt.smartindent = true
-opt.visualbell = true
-
-opt.showmatch = true
-
-opt.expandtab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
-
-opt.listchars = 'tab:>-', 'trail:*', 'nbsp:+'
-opt.ignorecase = true
-opt.smartcase = true
-opt.wrapscan = true
-
-opt.whichwrap = 'b', 's', 'h', 'l', '<', '>', '[', ']'
-opt.backspace = 'start', 'eol', 'indent'
-opt.fileformats = 'dos', 'unix', 'mac'
-
-opt.helplang = 'ja', 'en'
-
-opt.updatetime = 300
-
-opt.showtabline = 2
 
 vim.cmd("colorscheme nightfox")
 
-local cmp = require'cmp'
+require 'options'
 
+local cmp = require'cmp'
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -150,6 +98,10 @@ require('lspconfig')['marksman'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
+require('lspconfig')['gopls'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
 
 -- null-ls
 local null_ls = require("null-ls")
@@ -170,3 +122,36 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- visual
+require('lualine').setup()
+
+-- git
+require('git').setup({
+  default_mappings = true, -- NOTE: `quit_blame` and `blame_commit` are still merged to the keymaps even if `default_mappings = false`
+
+  keymaps = {
+    -- Open blame window
+    blame = "<Leader>gb",
+    -- Close blame window
+    quit_blame = "q",
+    -- Open blame commit
+    blame_commit = "<CR>",
+    -- Open file/folder in git repository
+    browse = "<Leader>go",
+    -- Open pull request of the current branch
+    open_pull_request = "<Leader>gp",
+    -- Create a pull request with the target branch is set in the `target_branch` option
+    create_pull_request = "<Leader>gn",
+    -- Opens a new diff that compares against the current index
+    diff = "<Leader>gd",
+    -- Close git diff
+    diff_close = "<Leader>gD",
+    -- Revert to the specific commit
+    revert = "<Leader>gr",
+    -- Revert the current file to the specific commit
+    revert_file = "<Leader>gR",
+  },
+  -- Default target branch when create a pull request
+  target_branch = "main",
+})

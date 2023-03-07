@@ -41,6 +41,11 @@ require("packer").startup(function()
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  -- Git
+  use {
+    'dinhhuy258/git.nvim'
+  }
+
 
   --- etc...
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
