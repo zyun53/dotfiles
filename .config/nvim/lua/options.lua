@@ -15,12 +15,12 @@ vim.opt.ruler = true
 vim.opt.laststatus = 2
 vim.opt.showcmd = true
 vim.opt.wildmenu = true
-vim.opt.virtualedit = 'onemore'
+--vim.opt.virtualedit = 'onemore'
 vim.opt.filetype = "plugin", "indent","on"
 vim.opt.so = 5
 vim.opt.cursorline = true
 vim.opt.hidden = true
-
+ 
 vim.opt.number = true
 vim.opt.list = true
 vim.opt.smartindent = true
