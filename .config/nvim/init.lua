@@ -70,7 +70,6 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-
 require("mason").setup()
 require("mason-lspconfig").setup()
 
@@ -112,6 +111,7 @@ null_ls.setup({
         null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.completion.spell,
         null_ls.builtins.diagnostics.markdownlint,
+        null_ls.builtins.diagnostics.textlint.with({ filetypes = { "markdown" } }),
     },
 })
 
