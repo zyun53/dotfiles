@@ -32,7 +32,8 @@ zinit snippet PZTM::ssh
 # }}}
 
 # ALIAS {{{
-alias v='vim'
+alias v='nvim'
+alias vi='nvim'
 alias g='git'
 
 alias lg='lazygit'
