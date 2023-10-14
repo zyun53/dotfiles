@@ -1,67 +1,65 @@
 [core]
-    editor = vim -c \"set fenc=utf-8\"
+  editor = nvim
 
 [user]
-    name = Isida Zyun'iti
-    email = zyun@mituba.org
+  name = Isida Zyun'iti
+  email = mail@zyun.jp
+  signingkey = 9F2197C8B5AA98A9BD3E043EE1E62FA46340B299
 
 [init]
-    defaultBranch = main
+  defaultBranch = main
 
-[user]
-    useConfigOnly = true
+[commit]
+  gpgsign = true
 
 [pull]
-    ff = only
+  ff = only
 
 [gpg]
-    program = gpg
+  program = gpg
 
 [alias]
-    it = !git init && git commit -m root --allow-empty
-    df = diff
-    dff = diff --cached
-    cm = commit
-    ca = commit -a
-    st = status
-    sw = switch
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    ph = push origin HEAD
-    rs = restore
-    id = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
-    a = "!git status --short | fzf | awk '{print $2}' | xargs git add"
-    d = diff
-    co = checkout
-    ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
-    pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
-    st = status
-    br = branch
-    ba = branch -a
-    bm = branch --merged
-    bn = branch --no-merged
-    df = diff
-    dff = diff --cached
-    dh = "!git hist | fzf | awk '{print $2}' | xargs -I {} git diff {}^ {}"
-    hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
-    llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
-    open = "!hub browse"
-    type = cat-file -t
-    dump = cat-file -p
-    find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | fzf | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
+  it = !git init && git commit -m root --allow-empty
+  df = diff
+  dff = diff --cached
+  cm = commit
+  ca = commit -a
+  st = status
+  sw = switch
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  ph = push origin HEAD
+  rs = restore
+  id = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
+  a = "!git status --short | fzf | awk '{print $2}' | xargs git add"
+  d = diff
+  co = checkout
+  ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+  pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+  st = status
+  br = branch
+  ba = branch -a
+  bm = branch --merged
+  bn = branch --no-merged
+  df = diff
+  dff = diff --cached
+  dh = "!git hist | fzf | awk '{print $2}' | xargs -I {} git diff {}^ {}"
+  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+  llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+  open = "!hub browse"
+  type = cat-file -t
+  dump = cat-file -p
+  find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | fzf | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
     # edit conflicted file on merge
-    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
     # add conflicted file on merge
-    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
-
-[include]
-    path = ~/.gitconfig.local
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
 [ghq]
-    root = ~/src
+  root = ~/src
 
 [credential "https://github.com"]
-    helper = !gh auth git-credential
+  helper = !gh auth git-credential
 
 [credential "https://gitlab.com"]
-    helper = store
+  helper = store

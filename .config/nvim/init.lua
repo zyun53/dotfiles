@@ -155,3 +155,30 @@ require('git').setup({
   -- Default target branch when create a pull request
   target_branch = "main",
 })
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {},
+  },
+  indent = {
+    enable = true,
+    disable = {},
+  },
+  ensure_installed = {
+    "tsx",
+    "toml",
+    "fish",
+    "php",
+    "json",
+    "yaml",
+    "swift",
+    "css",
+    "html",
+    "lua",
+    "astro",
+  },
+  autotag = {
+    enable = true,
+  },
+}

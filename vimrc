@@ -14,9 +14,9 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'shun/ddc-vim-lsp'
 
-Plug 'altercation/vim-colors-solarized'
-
 Plug 'junegunn/vim-easy-align'
+
+Plug 'wuelnerdotexe/vim-astro'
 
 call plug#end()
 " }}}
@@ -52,9 +52,6 @@ call ddc#enable()
 " }}}
 
 syntax enable
-
-set background=dark
-colorscheme solarized
 
 set backup
 set backupdir=~/.vim/backup

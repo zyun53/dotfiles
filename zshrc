@@ -67,3 +67,9 @@ setopt SHARE_HISTORY          # Constantly share history between shell instances
 # }}}
 
 export PATH=$PATH:/usr/local/go/bin
+
+export GPG_TTY=$(tty)
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

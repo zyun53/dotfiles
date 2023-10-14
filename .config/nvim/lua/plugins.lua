@@ -48,7 +48,19 @@ require("packer").startup(function()
 
 
   --- etc...
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 
+    'nvim-treesitter/nvim-treesitter',
+     run = ':TSUpdate',
+     highlight = {
+       enable = true,
+       disable = { "c", "rust", "html" },
+     }
+  }
+
+  -- template
+  use {
+    'mattn/vim-sonictemplate'
+  }
 
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.1',

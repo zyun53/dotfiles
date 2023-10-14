@@ -23,3 +23,7 @@ ln -fs ${DOTFILES_PATH}/gpg.conf ~/.gnupg/gpg.conf
 ln -fs ${DOTFILES_PATH}/starship.toml ~/.config/starship.toml
 
 mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo
+
+
+
+ln -sfv ~/src/github.com/zyun-i/dotfiles/.config/nvim ~/.config/nvim
