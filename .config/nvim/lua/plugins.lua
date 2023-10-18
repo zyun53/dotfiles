@@ -13,6 +13,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
+  { 'keaising/im-select.nvim',
+    config = function()
+      require("im_select").setup({})
+    end,
+  },
   {'lewis6991/gitsigns.nvim',
     config = function()
       require('settings/gitsigns')
