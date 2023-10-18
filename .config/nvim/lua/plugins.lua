@@ -1,76 +1,38 @@
-vim.cmd.packadd "packer.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-require("packer").startup(function()
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-  -- lsp
-  use 'neovim/nvim-lspconfig'
-  use "williamboman/mason.nvim"
-  use 'williamboman/mason-lspconfig.nvim'
-
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
-
-  use 'jose-elias-alvarez/null-ls.nvim'
-
-  -- color shema
-  use 'joshdick/onedark.vim'
-  use "EdenEast/nightfox.nvim"
-
-  -- Filer
-  vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-  use {
-    "nvim-neo-tree/neo-tree.nvim",
-      branch = "v2.x",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
-      }
-  }
-
-  -- Visual
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-
-  -- Git
-  use {
-    'dinhhuy258/git.nvim'
-  }
-
-
-  --- etc...
-  use { 
-    'nvim-treesitter/nvim-treesitter',
-     run = ':TSUpdate',
-     highlight = {
-       enable = true,
-       disable = { "c", "rust", "html" },
-     }
-  }
-
-  -- template
-  use {
-    'mattn/vim-sonictemplate'
-  }
-
-  use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-  requires = { {'nvim-lua/plenary.nvim'} }
+require('lazy').setup {
+  {'lewis6991/gitsigns.nvim',
+    config = function()
+      require('settings/gitsigns')
+    end
+  },
+  {'preservim/nerdtree'},
+  {'ctrlpvim/ctrlp.vim'},
+  {'akinsho/toggleterm.nvim'},
+  {'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+  },
 }
-
-end)
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "plugins.lua" },
-  command = "PackerCompile",
-})
-
