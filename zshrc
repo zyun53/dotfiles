@@ -50,9 +50,8 @@ alias tl='tmux list-sessions'
 # }}}
 
 # History {{{
-
-# History environment variables
 HISTFILE=${HOME}/.zsh_history
+HISTORY_IGNORE="(cd|pwd|l[sal])"
 HISTSIZE=120000  # Larger than $SAVEHIST for HIST_EXPIRE_DUPS_FIRST to work
 SAVEHIST=100000
 
@@ -63,7 +62,6 @@ setopt HIST_IGNORE_SPACE      # Ignore command lines with leading spaces
 setopt HIST_VERIFY            # Reload results of history expansion before executing
 setopt INC_APPEND_HISTORY     # Constantly update $HISTFILE
 setopt SHARE_HISTORY          # Constantly share history between shell instances
-
 # }}}
 
 export PATH=$PATH:/usr/local/go/bin
@@ -73,3 +71,24 @@ export GPG_TTY=$(tty)
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+export PATH="$HOME/.docker/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# fbr - checkout git branch
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
