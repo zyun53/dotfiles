@@ -32,7 +32,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
-vim.opt.listchars = 'tab:>-', 'trail:*', 'nbsp:+'
+vim.opt.listchars = {tab='»-', trail='-', eol='↲', extends='»', precedes='«', nbsp='%'}
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.wrapscan = true
@@ -41,3 +41,4 @@ vim.opt.whichwrap = 'b', 's', 'h', 'l', '<', '>', '[', ']'
 vim.opt.backspace = 'start', 'eol', 'indent'
 
 vim.opt.updatetime = 100
+
