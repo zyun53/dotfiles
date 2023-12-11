@@ -21,6 +21,15 @@ EOF
 
 vim_dir() {
   mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo
+  mkdir -p ~/.gnupg
+  mkdir -p ~/.config
 }
 
+alacritty_theme() {
+  mkdir -p ~/.config/alacritty/themes
+  git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+}
+
+alacritty_theme
+vim_dir
 link_to_homedir
