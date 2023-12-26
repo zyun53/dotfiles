@@ -19,17 +19,18 @@ EOF
   ln -fsv ${DOTFILES_PATH}/config/nvim ~/.config/nvim
 }
 
-vim_dir() {
+make_misc_dir() {
+  # alacritty
+  mkdir -p ~/.config/alacritty/themes
+  git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+
+  # vim
   mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo
+
+  # etc
   mkdir -p ~/.gnupg
   mkdir -p ~/.config
 }
 
-alacritty_theme() {
-  mkdir -p ~/.config/alacritty/themes
-  git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-}
-
-alacritty_theme
-vim_dir
+make_misc_dir
 link_to_homedir
