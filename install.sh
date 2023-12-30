@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ue
+set -uex
 
 DOTFILES_PATH=~/src/github.com/zyun53/dotfiles
 
@@ -16,13 +16,16 @@ EOF
 
   ln -fsv ${DOTFILES_PATH}/gpg.conf ~/.gnupg/gpg.conf
   ln -fsv ${DOTFILES_PATH}/starship.toml ~/.config/starship.toml
-  ln -fsv ${DOTFILES_PATH}/config/nvim ~/.config/nvim
+  ln -fsv ${DOTFILES_PATH}/config/nvim/ ~/.config
 }
 
 make_misc_dir() {
   # alacritty
-  mkdir -p ~/.config/alacritty/themes
-  git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+  if [ ! -d ~/.config/alacritty/themes ]
+  then
+    mkdir -p ~/.config/alacritty/themes
+    git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+  fi
 
   # vim
   mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo
