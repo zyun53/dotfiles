@@ -40,7 +40,7 @@ alias lg='lazygit'
 alias k='kubectl'
 alias typora="open -a typora"
 alias typora="open -a typora"
-alias dotfiles="cd ~/src/github.com/zyun-i/dotfiles"
+alias dotfiles="cd ~/src/github.com/zyun53/dotfiles"
 alias diff='colordiff -u'
 
 alias t='tmux attach || tmux new-session'
