@@ -7,7 +7,3 @@ size = 12.0
 
 [font.normal]
 family = "PlemolJP Console NF"
-
-#[font.offset]
-#x = 1
-#y = 1
