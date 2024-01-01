@@ -1,4 +1,5 @@
 return {
+  {
     'nvim-treesitter/nvim-treesitter',
     init = function()
       require('nvim-treesitter.configs').setup({
@@ -8,5 +9,6 @@ return {
         }
       })
     end,
+  },
   'nvim-treesitter/nvim-treesitter-context',
 }
