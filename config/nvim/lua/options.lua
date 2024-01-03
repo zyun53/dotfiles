@@ -6,7 +6,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hidden = true
 vim.opt.clipboard:append({'unnamedplus'})
-vim.opt.syntax = 'on'
+--vim.opt.syntax = 'on'
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 vim.opt.smartcase = true
