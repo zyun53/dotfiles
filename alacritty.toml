@@ -1,10 +1,26 @@
+# 参考
+# https://alacritty.org/config-alacritty.html
+# https://www.zakioka.net/blog/my-shell-prompt-2022
+
 import = [
   "~/.config/alacritty/themes/themes/nightfox.toml",
 ]
 
 [font]
 size = 16.0
+normal = { family = "PlemolJP Console NF", style = "Regular" }
+bold = { family = "PlemolJP Console NF", style = "Bold" }
 
-[font.normal]
-family = "PlemolJP Console NF"
-style = "Regular"
+[window]
+opacity = 0.85
+padding = {x = 4, y = 4 }
+dimensions = { columns = 120, lines = 40 }
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[keyboard]
+bindings = [
+  { key = "Enter", action = "ToggleFullscreen", mods = "Command" },
+]
