@@ -1,7 +1,14 @@
 # vim: foldmethod=marker
 
 export LC_CTYPE="en_US.UTF-8"
+export PATH=$PATH:/usr/local/go/bin
+export GPG_TTY=$(tty)
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$HOME/.docker/bin:$PATH"
 
+# zinit {{{
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -28,7 +35,6 @@ zinit ice as"command" from"gh-r" \
 zinit light starship/starship
 
 zinit snippet PZTM::ssh
-
 # }}}
 
 # ALIAS {{{
@@ -64,18 +70,8 @@ setopt INC_APPEND_HISTORY     # Constantly update $HISTFILE
 setopt SHARE_HISTORY          # Constantly share history between shell instances
 # }}}
 
-export PATH=$PATH:/usr/local/go/bin
-
-export GPG_TTY=$(tty)
-
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-export PATH="$HOME/.docker/bin:$PATH"
-
+# fzf {{{
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # fbr - checkout git branch
 fbr() {
@@ -93,17 +89,28 @@ fd() {
   cd "$dir"
 }
 
-# pnpm
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^]' ghq-fzf
+#}}}
+
+# pnpm {{{
 export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
+# }}}
 
-# bun completions
+# bun {{{
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+# }}}
