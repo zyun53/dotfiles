@@ -8,15 +8,15 @@ link_to_homedir() {
   do
       ln -fsv ${DOTFILES_PATH}/${line} ~/.${line}
   done << EOF
-  tmux.conf
-  gitconfig
+  gitonfig
   zshrc
   vimrc
 EOF
+  ln -fsv ${DOTFILES_PATH}/tmux.conf      ~/.config/tmux/tmux.conf
   ln -fsv ${DOTFILES_PATH}/alacritty.toml ~/.config/alacritty/alacritty.toml
-  ln -fsv ${DOTFILES_PATH}/gpg.conf ~/.gnupg/gpg.conf
-  ln -fsv ${DOTFILES_PATH}/starship.toml ~/.config/starship.toml
-  ln -fsv ${DOTFILES_PATH}/config/nvim/ ~/.config
+  ln -fsv ${DOTFILES_PATH}/gpg.conf       ~/.gnupg/gpg.conf
+  ln -fsv ${DOTFILES_PATH}/starship.toml  ~/.config/starship.toml
+  ln -fsv ${DOTFILES_PATH}/config/nvim/   ~/.config
 }
 
 make_misc_dir() {
@@ -33,6 +33,7 @@ make_misc_dir() {
   # etc
   mkdir -p ~/.gnupg
   mkdir -p ~/.config
+  mkdir -p ~/.config/tmux
 }
 
 make_misc_dir

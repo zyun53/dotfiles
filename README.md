@@ -1,84 +1,14 @@
 # dotfiles
 
-python3
-apt install python3-pip
-pip3 install pipenv
+## TrueColor対応
 
-rg
-sudo apt-get install ripgrep
+[TrueColor対応のはなし(端末、シェル、tmux、vim) - Panda Noir](https://www.pandanoir.info/entry/2019/11/02/202146)
 
-terraform
-https://learn.hashicorp.com/tutorials/terraform/install-cli
-
-https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install
-
-https://minikube.sigs.k8s.io/docs/start/
-
-fzf
-
-rg
-
-git-lfs
-https://git-lfs.github.com/
-
-HackGen
-https://github.com/yuru7/HackGen
-
-gh
-https://github.com/cli/cli/blob/trunk/docs/install_linux.md
-
-node
-https://github.com/nodesource/distributions/blob/master/README.md#deb
-
-cloudflared
-https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation
-
-docker
-https://docs.docker.com/engine/install/ubuntu/
-
-kubernetes
-https://kubernetes.io/ja/docs/tasks/tools/install-kubectl/
-
-gcloud
-https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu?hl=ja
-
-❯ cat README.md
-git tmux jq vim
-
+```sh
+curl -s https://gist.githubusercontent.com/lifepillar/09a44b8cf0f9397465614e622979107f/raw/24-bit-color.sh | bash
 ```
-sudo apt install tmux zsh jq git vim zsh colordiff
-```
-
-
-go
-
-https://golang.org/doc/install
-
-make
-
-
-
-プログラミング用日本語等幅フォント Cica
-https://github.com/miiton/Cica
-
-## Ubuntu
-
-vim
-
-git
-$ sudo add-apt-repository ppa:git-core/ppa
-
-gh
-https://github.com/cli/cli/blob/trunk/docs/install_linux.md
-
-go
-
-https://golang.org/doc/install
-tar -C /usr/local -xzf go1.15.7.linux-amd64.tar.gz
-
 
 ## macOS
-
 
 * https://cloud.google.com/sdk/docs/install?hl=ja#mac
 * brew install --cask google-cloud-sdk
@@ -102,6 +32,7 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 # For example, we just use `~/.cache/dein` as installation directory
 sh ./installer.sh ~/.cache/dein
 ```
+
 Vim for PHP: The Complete Guide for a Powerful PHP IDE · Web technologies https://web-techno.net/vim-php-ide/
 
 ## zsh
