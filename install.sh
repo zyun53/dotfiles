@@ -8,7 +8,7 @@ link_to_homedir() {
   do
       ln -fsv ${DOTFILES_PATH}/${line} ~/.${line}
   done << EOF
-  gitonfig
+  gitconfig
   zshrc
   vimrc
 EOF
