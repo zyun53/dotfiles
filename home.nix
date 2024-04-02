@@ -11,10 +11,11 @@
     pkgs.bat
   ];
 
-  home.file = {
+  home.file = {};
 
   home.sessionVariables = {
   #  EDITOR = "nvim";
+     VAR1 = "hoge";
   };
 
   programs.home-manager.enable = true;
