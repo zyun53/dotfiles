@@ -5,6 +5,7 @@
   home.homeDirectory = "/Users/zyun";
 
   home.stateVersion = "23.11";
+  home.language.base = "en_US.UTF-8";
 
   home.packages = [
     pkgs.ripgrep
