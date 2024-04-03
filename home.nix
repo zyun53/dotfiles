@@ -31,6 +31,7 @@
     aliases = {
       br = "branch";
       co = "checkout";
+      co = "commit";
       st = "status";
       df = "diff";
       dfc = "diff --cached";
