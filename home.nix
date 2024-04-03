@@ -32,6 +32,7 @@
       br = "branch";
       co = "checkout";
       st = "status";
+      df = "diff";
       dfc = "diff --cached";
       lg = "log --oneline --graph --decorate";
       rs = "reset";
