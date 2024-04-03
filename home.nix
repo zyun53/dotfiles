@@ -30,7 +30,6 @@
     userEmail = "mail@zyun.jp";
     aliases = {
       br = "branch";
-      co = "checkout";
       co = "commit";
       st = "status";
       df = "diff";
