@@ -150,4 +150,21 @@
       };
     };
   };
+
+  programs.tmux = {
+    enable = true;
+
+    baseIndex = 0;
+    clock24 = true;
+    escapeTime = 1;
+    extraConfig = ''
+      source ${./tmux.conf}
+    '';
+    historyLimit = 100000;
+    keyMode = "vi";
+    newSession = false;
+    prefix = "C-a";
+    shell = pkgs.lib.getExe pkgs.zsh;
+    terminal = "screen-256color";
+  };
 }

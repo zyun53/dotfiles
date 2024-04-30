@@ -1,5 +1,12 @@
 # dotfiles
 
+## Nix
+
+```sh
+nix run home-manager/$branch -- init --switch ~/hmconf
+home-manager switch --flake ~/hmconf
+```
+
 ## TrueColor対応
 
 [TrueColor対応のはなし(端末、シェル、tmux、vim) - Panda Noir](https://www.pandanoir.info/entry/2019/11/02/202146)
