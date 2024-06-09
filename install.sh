@@ -10,7 +10,6 @@ link_to_homedir() {
   done << EOF
   gitconfig
   zshrc
-  vimrc
 EOF
   ln -fsv ${DOTFILES_PATH}/tmux.conf      ~/.config/tmux/tmux.conf
   ln -fsv ${DOTFILES_PATH}/alacritty.toml ~/.config/alacritty/alacritty.toml
