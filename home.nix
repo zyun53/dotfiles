@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+      nixpkgs.config.allowUnfreePredicate = _: true;
+
+
   home.username = "zyun";
   home.homeDirectory = "/Users/zyun";
 
@@ -12,6 +15,8 @@
     pkgs.bat
     pkgs.fd
     pkgs.htop
+    pkgs.aws-vault
+    pkgs._1password
   ];
 
   home.file = {};
@@ -26,8 +31,6 @@
   programs.git = {
     enable = true;
 
-    userName = "Isida Zyun'iti";
-    userEmail = "mail@zyun.jp";
     aliases = {
       br = "branch";
       co = "commit";
@@ -46,6 +49,9 @@
       };
       color = {
         ui = "auto";
+      };
+      user = {
+        useConfigOnly = true;
       };
       init = {
         defaultBranch = "main";
@@ -151,20 +157,53 @@
     };
   };
 
+  programs.direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
+
+  programs.bash.enable = true; # see note on other shells below
+
   programs.tmux = {
     enable = true;
 
     baseIndex = 0;
     clock24 = true;
     escapeTime = 1;
-    extraConfig = ''
-      source ${./tmux.conf}
-    '';
     historyLimit = 100000;
     keyMode = "vi";
     newSession = false;
     prefix = "C-a";
     shell = pkgs.lib.getExe pkgs.zsh;
     terminal = "screen-256color";
+    customPaneNavigationAndResize = true;
+    disableConfirmationPrompt = true;
+    aggressiveResize = true;
+
+    plugins = with pkgs;
+      [
+        tmuxPlugins.yank
+        tmuxPlugins.urlview
+        {
+          plugin = tmuxPlugins.prefix-highlight;
+          extraConfig = ''
+            set -g status-fg 'green'
+            set -g status-bg 'black'
+            
+            set -g status-left " #S | #I.#P | "
+            set -g status-right '#{prefix_highlight} | #[fg=green]%a %Y-%m-%d %H:%M | #H '
+            
+            setw -g window-status-format ' #I:#W #F '
+            setw -g window-status-current-format '#[bg=colour240] #I:#W #F '
+            set -g @prefix_highlight_show_copy_mode 'on'
+            set -g @prefix_highlight_show_sync_mode 'on'
+          '';
+        }
+      ];
+    extraConfig = ''
+      source ${./tmux.conf}
+    '';
+
   };
 }
