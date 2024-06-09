@@ -42,7 +42,7 @@
     };
     extraConfig = {
       core = {
-        editor = "nvim";
+        editor = "vim";
       };
       advice = {
         skippedCherryPicks = false;
