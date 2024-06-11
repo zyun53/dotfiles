@@ -1,13 +1,11 @@
 { config, pkgs, ... }:
 
 {
-      nixpkgs.config.allowUnfreePredicate = _: true;
-
+  nixpkgs.config.allowUnfreePredicate = _: true;
 
   home.username = "zyun";
   home.homeDirectory = "/Users/zyun";
-
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
   home.language.base = "en_US.UTF-8";
 
   home.packages = [
@@ -17,12 +15,12 @@
     pkgs.htop
     pkgs.aws-vault
     pkgs._1password
+    pkgs.awscli2
   ];
 
   home.file = {};
 
   home.sessionVariables = {
-  #  EDITOR = "nvim";
      VAR1 = "hoge";
   };
 
