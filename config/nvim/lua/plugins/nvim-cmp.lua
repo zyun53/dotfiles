@@ -3,6 +3,7 @@ return {  -- cmp
     "hrsh7th/nvim-cmp",
     config = function()
       local cmp = require('cmp')
+      local lspkind = require('lspkind')
       cmp.setup({
         -- Enable LSP snippets
         snippet = {
@@ -14,6 +15,19 @@ return {  -- cmp
             completion = cmp.config.window.bordered(),
             documentation = cmp.config.window.bordered(),
         },
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = "symbol_text",
+            menu = ({
+              buffer = "[Buffer]",
+              nvim_lsp = "[LSP]",
+              luasnip = "[LuaSnip]",
+              nvim_lua = "[Lua]",
+              latex_symbols = "[Latex]",
+              skkeleton = "[SKK]",
+            })
+          }),
+        },
       mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -24,6 +38,7 @@ return {  -- cmp
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'vsnip' }, -- For vsnip users.
+        { name = 'skkeleton' },
       }, {
         { name = 'buffer' },
       })
@@ -40,4 +55,7 @@ return {  -- cmp
   --'hrsh7th/cmp-nvim-lsp-signature-help',
   'hrsh7th/cmp-vsnip',
   "hrsh7th/vim-vsnip",
+  "rinx/cmp-skkeleton",
+  "onsails/lspkind.nvim",
+  
 }

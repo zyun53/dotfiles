@@ -16,6 +16,14 @@
     pkgs.aws-vault
     pkgs._1password
     pkgs.awscli2
+    pkgs.rye
+    pkgs.terraform
+    pkgs.jq
+    pkgs.nkf
+    pkgs.kubernetes-helm
+    pkgs.postgresql
+    pkgs.minio-client
+    pkgs.fzf
   ];
 
   home.file = {};
@@ -30,12 +38,15 @@
     enable = true;
 
     aliases = {
+      a = "add";
       br = "branch";
-      co = "commit";
+      cm = "commit";
       st = "status";
       df = "diff";
       dfc = "diff --cached";
-      lg = "log --oneline --graph --decorate";
+      lg = "log --graph --online --decorate";
+      ll = "log --graph --date=relative --name-status --abbrev-commit";
+      sl = "log --graph --oneline --date=relative --abbrev-commit";
       rs = "reset";
     };
     extraConfig = {

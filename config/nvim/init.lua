@@ -1,3 +1,3 @@
-require("base")
-require("options")
-require("lazynvim")
+require("config.base")
+require("config.options")
+require("config.lazy")
