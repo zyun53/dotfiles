@@ -4,5 +4,6 @@ return {
     local lspconfig = require('lspconfig')
     lspconfig.rust_analyzer.setup {}
     lspconfig.pyright.setup {}
+    lspconfig.tsserver.setup {}
   end
 }
