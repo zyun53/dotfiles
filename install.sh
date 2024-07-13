@@ -16,6 +16,7 @@ EOF
   ln -fsv ${DOTFILES_PATH}/gpg.conf       ~/.gnupg/gpg.conf
   ln -fsv ${DOTFILES_PATH}/starship.toml  ~/.config/starship.toml
   ln -fsv ${DOTFILES_PATH}/config/nvim/   ~/.config
+  ln -fsv ${DOTFILES_PATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
 }
 
 make_misc_dir() {
