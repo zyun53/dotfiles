@@ -11,8 +11,6 @@ link_to_homedir() {
   gitconfig
   zshrc
 EOF
-  ln -fsv ${DOTFILES_PATH}/tmux.conf      ~/.config/tmux/tmux.conf
-  ln -fsv ${DOTFILES_PATH}/alacritty.toml ~/.config/alacritty/alacritty.toml
   ln -fsv ${DOTFILES_PATH}/gpg.conf       ~/.gnupg/gpg.conf
   ln -fsv ${DOTFILES_PATH}/starship.toml  ~/.config/starship.toml
   ln -fsv ${DOTFILES_PATH}/config/nvim/   ~/.config
