@@ -43,6 +43,8 @@
     enable = true;
 
     aliases = {
+      a = "add";
+      p = "push";
       br = "branch";
       cm = "commit";
       st = "status";
@@ -55,7 +57,7 @@
     };
     extraConfig = {
       core = {
-        editor = "vim";
+        editor = "nvim";
       };
       advice = {
         skippedCherryPicks = false;
