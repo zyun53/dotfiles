@@ -1,10 +1,14 @@
 # dotfiles
 
+
 ## Nix
 
 ```sh
-nix run home-manager/$branch -- init --switch ~/hmconf
-home-manager switch --flake ~/hmconf
+# Bootstrap
+nix run nix-darwin -- switch --flake ~/src/github.com/zyun53/dotfiles/nix-darwin
+
+# Update
+darwin-rebuild switch --flake ~/src/github.com/zyun53/dotfiles/nix-darwin
 ```
 
 ## TrueColor対応

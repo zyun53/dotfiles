@@ -8,7 +8,6 @@ link_to_homedir() {
   do
       ln -fsv ${DOTFILES_PATH}/${line} ~/.${line}
   done << EOF
-  gitconfig
   zshrc
 EOF
   ln -fsv ${DOTFILES_PATH}/gpg.conf       ~/.gnupg/gpg.conf
@@ -18,13 +17,6 @@ EOF
 }
 
 make_misc_dir() {
-  # alacritty
-  if [ ! -d ~/.config/alacritty/themes ]
-  then
-    mkdir -p ~/.config/alacritty/themes
-    git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-  fi
-
   # vim
   mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo
 
