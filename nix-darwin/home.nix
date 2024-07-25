@@ -29,6 +29,7 @@
     ffmpeg
     rain
     gh
+    ghq
   ];
 
   home.file = {};

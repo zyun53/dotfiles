@@ -14,6 +14,7 @@ EOF
   ln -fsv ${DOTFILES_PATH}/starship.toml  ~/.config/starship.toml
   ln -fsv ${DOTFILES_PATH}/config/nvim/   ~/.config
   ln -fsv ${DOTFILES_PATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
+  ln -fsv ${DOTFILES_PATH}/aerospace.toml ~/.aerospace.toml
 }
 
 make_misc_dir() {
