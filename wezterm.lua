@@ -20,7 +20,6 @@ config.adjust_window_size_when_changing_font_size = false
 config.enable_scroll_bar = false
 config.front_end = "WebGpu"
 config.window_decorations = "TITLE | RESIZE"
-config.native_macos_fullscreen_mode = true
 
 config.use_ime = false
 
@@ -37,11 +36,6 @@ config.window_padding = {
 }
 
 config.keys = {
-  {
-    key = 'f',
-    mods = 'CMD',
-    action = wezterm.action.ToggleFullScreen,
-  },
   {
     key = ';',
     mods = 'CMD',
