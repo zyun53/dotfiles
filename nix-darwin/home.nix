@@ -46,6 +46,7 @@
     aliases = {
       a = "add";
       p = "push";
+      s = "status";
       br = "branch";
       cm = "commit";
       st = "status";
