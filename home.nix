@@ -52,6 +52,9 @@
     syntaxHighlighting = {
       enable = true;
     };
+    initExtra = ''
+      . ${./zshrc}
+    '';
   };
 
   programs.git = {
