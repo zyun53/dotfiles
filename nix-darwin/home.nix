@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.username = "zyun";
@@ -39,6 +39,20 @@
   };
 
   programs.home-manager.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    dotDir = ".config/zsh";
+    history = {
+      extended = true;
+      path = "${config.xdg.dataHome}/zsh/.zsh_history";
+      save = 1000000;
+      size = 1000000;
+    };
+    syntaxHighlighting = {
+      enable = true;
+    };
+  };
 
   programs.git = {
     enable = true;
@@ -175,13 +189,12 @@
   };
 
   programs.direnv = {
-      enable = true;
-      #enableBashIntegration = true; # see note on other shells below
-      nix-direnv.enable = true;
-    };
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
-  #programs.bash.enable = true; # see note on other shells below
-
+  programs.bash.enable = true; # see note on other shells below
   programs.tmux = {
     enable = true;
 
