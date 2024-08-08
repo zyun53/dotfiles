@@ -10,11 +10,12 @@ link_to_homedir() {
   done << EOF
   zshrc
 EOF
-  ln -fsv ${DOTFILES_PATH}/gpg.conf       ~/.gnupg/gpg.conf
-  ln -fsv ${DOTFILES_PATH}/starship.toml  ~/.config/starship.toml
-  ln -fsv ${DOTFILES_PATH}/config/nvim/   ~/.config
-  ln -fsv ${DOTFILES_PATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
-  ln -fsv ${DOTFILES_PATH}/aerospace.toml ~/.aerospace.toml
+  ln -fsv ${DOTFILES_PATH}/gpg.conf              ~/.gnupg/gpg.conf
+  ln -fsv ${DOTFILES_PATH}/starship.toml         ~/.config/starship.toml
+  ln -fsv ${DOTFILES_PATH}/config/nvim/          ~/.config
+  ln -fsv ${DOTFILES_PATH}/hammerspoon/init.lua  ~/.hammerspoon/init.lua
+  ln -fsv ${DOTFILES_PATH}/aerospace.toml        ~/.aerospace.toml
+  ln -fsv ${DOTFILES_PATH}/zellij/config.kdl     ~/.config/zellij/config.kdl
 }
 
 make_misc_dir() {
