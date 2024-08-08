@@ -40,6 +40,7 @@ alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
 
+alt-0 = 'workspace 0'
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -49,8 +50,8 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
-alt-0 = 'workspace 0'
 
+alt-shift-0 = 'move-node-to-workspace 0'
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
@@ -60,7 +61,6 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-0 = 'move-node-to-workspace 0'
 
 cmd-h = []
 
@@ -88,16 +88,16 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 [workspace-to-monitor-force-assignment]
+0 = 'main'
 1 = 'main'
 2 = 'main'
 3 = 'main'
 4 = 'main'
-5 = 'main'
+5 = 'secondary'
 6 = 'secondary'
 7 = 'secondary'
 8 = 'secondary'
 9 = 'secondary'
-0 = 'secondary'
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
@@ -107,9 +107,9 @@ run = 'move-node-to-workspace 1'
 if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace 2'
 
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
-run = 'move-node-to-workspace 5'
+#[[on-window-detected]]
+#if.app-id = 'org.mozilla.firefox'
+#run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.1password.1password'
@@ -242,4 +242,20 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Excel'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.amazon.clouddrive.mac'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'pl.maketheweb.cleanshotx'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.runningwithcrayons.Alfred-Preferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.utmapp.UTM'
 run = 'layout floating'

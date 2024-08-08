@@ -30,6 +30,8 @@
     rain
     gh
     ghq
+    bottom
+    zellij
   ];
 
   home.file = {};
@@ -43,6 +45,7 @@
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
+    enableCompletion = true;
     history = {
       extended = true;
       path = "${config.xdg.dataHome}/zsh/.zsh_history";
