@@ -10,7 +10,7 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
+  nix.package = pkgs.nix;
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -36,5 +36,32 @@
   users.users.zyun = {
     name = "zyun";
     home = "/Users/zyun";
+  };
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "uninstall";
+    };
+    brews = [
+      "kayac/tap/ecspresso"
+    ];
+    taps = [
+      "kayac/homebrew-tap"
+      "dracula/install"
+      "nikitabobko/tap"
+      "homebrew/cask-fonts"
+    ];
+    casks = [
+      "font-plemol-jp"
+      "font-plemol-jp-nf"
+      "font-udev-gothic-nf"
+      "font-plemol-jp-hs"
+      "font-udev-gothic"
+      "aerospace"
+      "sequel-ace"
+      "sublime-text"
+    ];
   };
 }

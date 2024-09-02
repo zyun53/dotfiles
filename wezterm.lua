@@ -5,7 +5,8 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.font = wezterm.font("PlemolJP Console NF", {weight="Medium", stretch="Normal", style="Normal"})
+--config.font = wezterm.font("PlemolJP Console NF", {weight="Medium", stretch="Normal", style="Normal"})
+config.font = wezterm.font("UDEV Gothic NF", {weight="Regular", stretch="Normal", style="Normal"})
 config.font_size = 14.0
 
 config.color_scheme = "nord"
@@ -33,6 +34,14 @@ config.window_padding = {
   right = 0,
   top = 0,
   bottom = 0,
+}
+
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "NONE",
+    action = wezterm.action.Nop,
+  },
 }
 
 config.keys = {

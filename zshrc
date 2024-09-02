@@ -54,6 +54,13 @@ alias ta='tmux attach -t'
 alias tn='tmux new-session'
 alias tl='tmux list-sessions'
 alias z='zellij attach --index 0 --create'
+
+alias nixre="darwin-rebuild switch --flake ~/src/github.com/zyun53/dotfiles"
+alias nixgc="nix-collect-garbage -d"
+alias nixq="nix-env -qaP"
+alias nixupgrade="sudo -i sh -c 'nix-channel --update && nix-env -iA nixpkgs.nix && launchctl remove org.nixos.nix-daemon && launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'"
+alias nixup="nix-env -u"
+alias nixcfg="nvim ~/.nixpkgs/darwin-configuration.nix"
 # }}}
 
 # History {{{
@@ -124,4 +131,13 @@ eval "$(mise activate zsh)"
 # Deno {{{
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+# }}}
+
+# homebrew {{{
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+[ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 # }}}

@@ -9,11 +9,10 @@ success_symbol = '[➜](bold green)'
 error_symbol = '[✗](bold red)'
 
 [git_branch]
-disabled = true
+disabled = false
 
 [aws]
 format = 'on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
-symbol = '☁️'
 
 [aws.region_aliases]
 ap-northeast-1 = 'tokyo'

@@ -18,7 +18,15 @@
     awscli2
     rye
     terraform
+
+    gh
+    ghq
+
+    # for query
     jq
+    yq
+    csvq
+
     nkf
     kubernetes-helm
     postgresql
@@ -28,11 +36,10 @@
     ookla-speedtest
     ffmpeg
     rain
-    gh
-    ghq
     bottom
     zellij
   ];
+
 
   home.file = {};
 
@@ -67,12 +74,13 @@
       a = "add";
       p = "push";
       s = "status";
+      sw = "switch";
       br = "branch";
       cm = "commit";
       st = "status";
       df = "diff";
       dfc = "diff --cached";
-      lg = "log --graph --online --decorate";
+      lg = "log --graph --oneline --decorate";
       ll = "log --graph --date=relative --name-status --abbrev-commit";
       sl = "log --graph --oneline --date=relative --abbrev-commit";
       rs = "reset";

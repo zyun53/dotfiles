@@ -16,7 +16,7 @@
   };
 
   outputs = inputs@{ self, darwin, nixpkgs, home-manager }: {
-    darwinConfigurations."mac-2564" = darwin.lib.darwinSystem {
+    darwinConfigurations."MacBook-Pro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./configuration.nix

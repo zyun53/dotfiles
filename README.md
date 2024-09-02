@@ -3,6 +3,13 @@
 
 ## Nix
 
+参考になる
+
+* [Darwin Configuration Options](https://daiderd.com/nix-darwin/manual/index.html)
+  * 本家のマニュアル
+* [takeokunn/nixos-configuration](https://github.com/takeokunn/nixos-configuration/tree/main)
+  * 3つのOSで設定してる方のリポジトリ
+
 ```sh
 # Bootstrap
 nix run nix-darwin -- switch --flake ~/src/github.com/zyun53/dotfiles/nix-darwin
