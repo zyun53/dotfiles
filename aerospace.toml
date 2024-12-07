@@ -284,3 +284,7 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.poly.lens.client.app'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.vmware.fusion'
+run = 'layout floating'

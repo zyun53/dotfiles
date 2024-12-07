@@ -7,6 +7,7 @@
   home.language.base = "en_US.UTF-8";
 
   home.packages = with pkgs; [
+    gnutar
     neovim
     mise
     ripgrep
@@ -29,15 +30,20 @@
 
     nkf
     kubernetes-helm
+    kubectl
     postgresql
     minio-client
     fzf
+    skim # Command-line fuzzy finder written in Rust
     aria2
     ookla-speedtest
     ffmpeg
     rain
     bottom
     zellij
+    watch
+    hey
+
   ];
 
 

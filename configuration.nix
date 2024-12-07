@@ -54,6 +54,7 @@
       "homebrew/cask-fonts"
     ];
     casks = [
+      "finch"
       "font-plemol-jp"
       "font-plemol-jp-nf"
       "font-udev-gothic-nf"

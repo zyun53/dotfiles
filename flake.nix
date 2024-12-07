@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    darwin = {
+    nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -15,8 +15,8 @@
     };
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, home-manager }: {
-    darwinConfigurations."MacBook-Pro" = darwin.lib.darwinSystem {
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }: {
+    darwinConfigurations."mac-732" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./configuration.nix

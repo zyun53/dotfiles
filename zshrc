@@ -1,7 +1,7 @@
 # vim: foldmethod=marker
 
 export LC_CTYPE="en_US.UTF-8"
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export GPG_TTY=$(tty)
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export VOLTA_HOME="$HOME/.volta"
@@ -53,7 +53,7 @@ alias t='tmux attach || tmux new-session'
 alias ta='tmux attach -t'
 alias tn='tmux new-session'
 alias tl='tmux list-sessions'
-alias z='zellij attach --index 0 --create'
+alias z='zellij attach default --create'
 
 alias nixre="darwin-rebuild switch --flake ~/src/github.com/zyun53/dotfiles"
 alias nixgc="nix-collect-garbage -d"

@@ -1,13 +1,17 @@
 local wezterm = require 'wezterm'
-local config = {}
+local config = wezterm.config_builder()
 
-if wezterm.config_builder then
-  config = wezterm.config_builder()
-end
+config.automatically_reload_config = true
+config.use_ime = false
 
---config.font = wezterm.font("PlemolJP Console NF", {weight="Medium", stretch="Normal", style="Normal"})
 config.font = wezterm.font("UDEV Gothic NF", {weight="Regular", stretch="Normal", style="Normal"})
 config.font_size = 14.0
+
+-- ウィンドウの透過
+-- config.window_background_opacity = 0.85
+-- config.macos_window_background_blur = 20
+
+config.window_decorations = "RESIZE"
 
 config.color_scheme = "nord"
 
@@ -20,20 +24,18 @@ config.hide_tab_bar_if_only_one_tab = true
 config.adjust_window_size_when_changing_font_size = false
 config.enable_scroll_bar = false
 config.front_end = "WebGpu"
-config.window_decorations = "TITLE | RESIZE"
 
-config.use_ime = false
 
 config.window_frame = {
   font = wezterm.font { family ='Roboto', weight = 'Medium' },
   font_size = 14.0,
+  inactive_titlebar_bg = "none",
+  active_titlebar_bg = "none",
 }
 
 config.window_padding = {
-  left = 5,
-  right = 0,
-  top = 0,
-  bottom = 0,
+   top = 10,
+   bottom = 10,
 }
 
 config.mouse_bindings = {
@@ -42,6 +44,18 @@ config.mouse_bindings = {
     mods = "NONE",
     action = wezterm.action.Nop,
   },
+      -- Ctrl-click will open the link under the mouse cursor
+    {
+        event = { Up = { streak = 1, button = "Left" } },
+        mods = "CTRL",
+        action = wezterm.action.OpenLinkAtMouseCursor,
+    },
+    -- Disable the Ctrl-click down event to stop programs from seeing it when a URL is clicked
+    {
+        event = { Down = { streak = 1, button = "Left" } },
+        mods = "CTRL",
+        action = wezterm.action.Nop,
+    },
 }
 
 config.keys = {
