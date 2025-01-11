@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.automatically_reload_config = true
-config.use_ime = false
+-- config.use_ime = false
 
 config.font = wezterm.font("UDEV Gothic NF", {weight="Regular", stretch="Normal", style="Normal"})
 config.font_size = 14.0

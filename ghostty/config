@@ -1,0 +1,25 @@
+theme = nord
+
+font-family = UDEV Gothic NF
+font-size = 14
+
+mouse-hide-while-typing = true
+macos-titlebar-style = tabs
+macos-non-native-fullscreen = true
+unfocused-split-fill = gray
+confirm-close-surface = false
+
+quick-terminal-animation-duration = 0
+
+keybind = global:ctrl+`=toggle_quick_terminal
+
+keybind = cmd+t=unbind
+keybind = cmd+n=unbind
+keybind = cmd+c=unbind
+keybind = cmd+w=unbind
+keybind = cmd+opt+left=unbind
+keybind = cmd+opt+right=unbind
+
+
+# 参考
+# https://gist.github.com/matsuu/657a813ef9162416ea34d691470edc06

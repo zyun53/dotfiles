@@ -27,8 +27,10 @@ hs.loadSpoon("ReloadConfiguration")
 
 -- hs.hotkey.bind({"ctrl"}, "t", open_wezterm)
 
-toggleApp("WezTerm", "space")
+-- toggleApp("WezTerm", "space")
 toggleApp("Visual Studio Code", "8")
+toggleApp("Slack", "9")
+toggleApp("Ghostty", "0")
 
 spoon.ReloadConfiguration:start()
 hs.alert.show("Reloaded!")

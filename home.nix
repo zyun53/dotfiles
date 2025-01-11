@@ -44,6 +44,9 @@
     watch
     hey
 
+    go-task
+    todo-txt-cli
+
   ];
 
 

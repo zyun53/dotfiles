@@ -49,7 +49,8 @@ alias typora="open -a typora"
 alias dotfiles="cd ~/src/github.com/zyun53/dotfiles"
 alias diff='colordiff -u'
 
-alias t='tmux attach || tmux new-session'
+alias t='todo.sh'
+alias tm='tmux attach || tmux new-session'
 alias ta='tmux attach -t'
 alias tn='tmux new-session'
 alias tl='tmux list-sessions'
