@@ -62,6 +62,7 @@ alias nixq="nix-env -qaP"
 alias nixupgrade="sudo -i sh -c 'nix-channel --update && nix-env -iA nixpkgs.nix && launchctl remove org.nixos.nix-daemon && launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'"
 alias nixup="nix-env -u"
 alias nixcfg="nvim ~/.nixpkgs/darwin-configuration.nix"
+alias script_start='script ~/work/scriptlogs/$(date +%Y-%m-%d_%H-%M-%S).txt'
 # }}}
 
 # History {{{
@@ -142,3 +143,5 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 # }}}
+
+source aws_zsh_completer.sh

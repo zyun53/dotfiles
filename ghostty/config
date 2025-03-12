@@ -1,10 +1,13 @@
 # 参考
 # https://gist.github.com/matsuu/657a813ef9162416ea34d691470edc06
 
+term = xterm-256color
+
 theme = nord
 
 font-family = UDEV Gothic NF
 font-size = 14
+font-feature = -dlig
 
 mouse-hide-while-typing = true
 
@@ -15,19 +18,14 @@ macos-option-as-alt = true
 unfocused-split-fill = gray
 confirm-close-surface = false
 
+quick-terminal-position = top
+quick-terminal-screen =  mouse
+quick-terminal-autohide = false
 quick-terminal-animation-duration = 0
-
 keybind = global:ctrl+`=toggle_quick_terminal
 
 keybind = cmd+t=unbind
-keybind = cmd+n=unbind
-keybind = cmd+c=unbind
-keybind = cmd+w=unbind
-keybind = cmd+opt+left=unbind
-keybind = cmd+opt+right=unbind
-
-keybind = alt+left=unbind
-keybind = alt+right=unbind
+#keybind = cmd+n=unbind
 
 keybind = alt+p=unbind
 keybind = alt+n=unbind

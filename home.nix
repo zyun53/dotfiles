@@ -3,7 +3,7 @@
 {
   home.username = "zyun";
   # home.homeDirectory = "/Users/zyun";
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
   home.language.base = "en_US.UTF-8";
 
   home.packages = with pkgs; [
@@ -14,8 +14,11 @@
     bat
     fd
     htop
+    colordiff
+    graphviz
+
     aws-vault
-    _1password
+    _1password-cli
     awscli2
     rye
     terraform
@@ -43,10 +46,17 @@
     zellij
     watch
     hey
+    mtr
+    hping
+    nmap
+    colima
+    docker
 
     go-task
     todo-txt-cli
 
+#   ollama
+#   wrangler
   ];
 
 
@@ -128,12 +138,24 @@
       rerere = {
         enabled = true;
       };
+      ghq = {
+        root = "~/src";
+      };
     };
     ignores = [
       "*~"
       "*.swp"
-      ".DS_Store"
       ".direnv"
+      ".log"
+      ".DS_Store"
+      ".DS_Store?"
+      "._*"
+      ".Spotlight-V100"
+      ".Trashes"
+      "ehthumbs.db"
+      "Thumbs.db"
+      ".idea*"
+      "node_modules"
     ];
     #signing = {
     #  key = "";
