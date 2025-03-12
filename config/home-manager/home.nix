@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "zyun";
@@ -17,24 +18,59 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages = with pkgs; [
+    gnutar
+    neovim
+    mise
+    ripgrep
+    bat
+    fd
+    htop
+    colordiff
+    graphviz
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    aws-vault
+    _1password-cli
+    awscli2
+    rye
+    terraform
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    gh
+    ghq
+
+    # for query
+    jq
+    yq
+    csvq
+
+    nkf
+    kubernetes-helm
+    kubectl
+    postgresql
+    minio-client
+    fzf
+    skim # Command-line fuzzy finder written in Rust
+    aria2
+    ookla-speedtest
+    ffmpeg
+    rain
+    bottom
+    zellij
+    watch
+    hey
+    mtr
+    hping
+    nmap
+    colima
+    docker
+
+    go-task
+    todo-txt-cli
+
+#   ollama
+#   wrangler
   ];
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -73,4 +109,193 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    dotDir = ".config/zsh";
+    enableCompletion = true;
+    history = {
+      extended = true;
+      path = "${config.xdg.dataHome}/zsh/.zsh_history";
+      save = 1000000;
+      size = 1000000;
+    };
+    syntaxHighlighting = {
+      enable = true;
+    };
+    initExtra = ''
+      . ${../../zshrc}
+    '';
+  };
+
+  programs.git = {
+    enable = true;
+
+    aliases = {
+      a = "add";
+      p = "push";
+      s = "status";
+      sw = "switch";
+      br = "branch";
+      cm = "commit";
+      st = "status";
+      df = "diff";
+      dfc = "diff --cached";
+      lg = "log --graph --oneline --decorate";
+      ll = "log --graph --date=relative --name-status --abbrev-commit";
+      sl = "log --graph --oneline --date=relative --abbrev-commit";
+      rs = "reset";
+    };
+    extraConfig = {
+      core = {
+        editor = "nvim";
+      };
+      advice = {
+        skippedCherryPicks = false;
+      };
+      color = {
+        ui = "auto";
+      };
+      user = {
+        useConfigOnly = true;
+      };
+      init = {
+        defaultBranch = "main";
+      };
+      merge = {
+        conflictStyle = "diff3";
+        ff = false;
+      };
+      pull = {
+        ff = "only";
+      };
+      push = {
+        default = "current";
+      };
+      rebase = {
+        autosquash = true;
+        autostash = true;
+        stat = true;
+      };
+      rerere = {
+        enabled = true;
+      };
+      ghq = {
+        root = "~/src";
+      };
+    };
+    ignores = [
+      "*~"
+      "*.swp"
+      ".direnv"
+      ".log"
+      ".DS_Store"
+      ".DS_Store?"
+      "._*"
+      ".Spotlight-V100"
+      ".Trashes"
+      "ehthumbs.db"
+      "Thumbs.db"
+      ".idea*"
+      "node_modules"
+    ];
+    #signing = {
+    #  key = "";
+    #};
+  };
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      colors = {
+        primary = {
+          background = "#192330";
+          foreground = "#cdcecf";
+        };
+        normal = {
+          black   = "#393b44";
+          red     = "#c94f6d";
+          green   = "#81b29a";
+          yellow  = "#dbc074";
+          blue    = "#719cd6";
+          magenta = "#9d79d6";
+          cyan    = "#63cdcf";
+          white   = "#dfdfe0";
+        };
+        bright = {
+          black   = "#575860";
+          red     = "#d16983";
+          green   = "#8ebaa4";
+          yellow  = "#e0c989";
+          blue    = "#86abdc";
+          magenta = "#baa1e2";
+          cyan    = "#7ad5d6";
+          white   = "#e4e4e5";
+        };
+      };
+      cursor = {
+        style = {
+          blinking = "On";
+        };
+      };
+      font = {
+        size = 16;
+        normal = {
+          family = "PlemolJP Console NF";
+          style = "Regular";
+        };
+        bold = {
+          style = "Bold";
+        };
+        italic = {
+          style = "Italic";
+        };
+        bold_italic = {
+          style = "Bold Italic";
+        };
+      };
+      window = {
+        padding = {
+          x = 4;
+          y = 4;
+        };
+        dimensions = {
+          columns = 100;
+          lines = 40;
+        };
+      };
+      scrolling = {
+        history = 10000;
+        multiplier = 3;
+      };
+      keyboard = {
+        bindings = [
+          { key = "Enter"; action = "ToggleFullscreen"; mods = "Command"; }
+        ];
+      };
+    };
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
+  programs.bash.enable = true; # see note on other shells below
+  programs.tmux = {
+    enable = true;
+
+    baseIndex = 0;
+    clock24 = true;
+    escapeTime = 1;
+    historyLimit = 100000;
+    keyMode = "vi";
+    newSession = false;
+    prefix = "C-a";
+    shell = pkgs.lib.getExe pkgs.zsh;
+    terminal = "screen-256color";
+    customPaneNavigationAndResize = true;
+    disableConfirmationPrompt = true;
+    aggressiveResize = true;
+  };
 }
