@@ -67,6 +67,9 @@
     go-task
     todo-txt-cli
 
+    httpie
+    uv
+
 #   ollama
 #   wrangler
   ];

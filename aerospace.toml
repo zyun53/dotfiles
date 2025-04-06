@@ -313,6 +313,9 @@ run = 'layout floating'
 if.app-id = 'com.microsoft.teams2'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'jp.co.sbisec.HYPERSBI2'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Photos'
