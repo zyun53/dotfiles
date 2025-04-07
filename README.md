@@ -1,5 +1,17 @@
 # dotfiles
 
+## nix-darwin
+
+[Setting up Nix on macOS](https://nixcademy.com/de/posts/nix-on-macos/)
+
+```sh
+nix run nix-darwin/master#darwin-rebuild -- switch --flake ~/.config/nix-darwin
+
+# Update
+nix flake update
+darwin-rebuild switch --flake .
+```
+https://github.com/handlename/dotfiles/tree/main
 
 ## Nix
 

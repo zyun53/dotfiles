@@ -2,7 +2,7 @@
 
 {
   home.username = "zyun";
-  # home.homeDirectory = "/Users/zyun";
+  home.homeDirectory = "/Users/zyun";
   home.stateVersion = "24.11";
   home.language.base = "en_US.UTF-8";
 

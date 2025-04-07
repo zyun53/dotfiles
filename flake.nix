@@ -40,6 +40,8 @@
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
 
+      nixpkgs.config.allowUnfree = true;
+
       system.defaults = {
         finder.AppleShowAllExtensions = true;
         finder.FXPreferredViewStyle = "Nlsv";
@@ -50,7 +52,18 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#mac-732
     darwinConfigurations."mac-732" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [
+          configuration
+          home-manager.darwinModules.home-manager
+          {
+            users.users.zyun.home = "/Users/zyun";
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.zyun = ./home.nix;
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+      ];
     };
   };
 }
