@@ -38,6 +38,11 @@
 
       nixpkgs.config.allowUnfree = true;
 
+      users.users.zyun = {
+        name = "zyun";
+        home = "/Users/zyun";
+      };
+
       homebrew = {
         enable = true;
         onActivation = {
@@ -97,7 +102,6 @@
           configuration
           home-manager.darwinModules.home-manager
           {
-            users.users.zyun.home = "/Users/zyun";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.zyun = ./home.nix;
