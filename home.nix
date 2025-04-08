@@ -51,6 +51,7 @@
     nmap
     colima
     docker
+    xz
 
     go-task
     todo-txt-cli

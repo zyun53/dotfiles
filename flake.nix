@@ -43,8 +43,24 @@
       nixpkgs.config.allowUnfree = true;
 
       system.defaults = {
-        finder.AppleShowAllExtensions = true;
-        finder.FXPreferredViewStyle = "Nlsv";
+        NSGlobalDomain.AppleShowAllExtensions = true;
+        finder = {
+          AppleShowAllExtensions = true;
+          FXPreferredViewStyle = "Nlsv";
+          FXEnableExtensionChangeWarning = false;
+          ShowPathbar = true;
+          ShowStatusBar = true;
+        };
+        dock = {
+          autohide = true;
+          show-recents = false;
+          orientation = "bottom";
+          tilesize = 50;
+          magnification = true;
+          largesize = 64;
+          mineffect = "scale";
+          launchanim = false;
+        };
       };
     };
   in
