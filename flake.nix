@@ -18,11 +18,7 @@
   outputs = inputs@{ self, home-manager, nix-darwin, nixpkgs }:
   let
     configuration = { pkgs, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [ pkgs.vim
-        ];
+      environment.systemPackages = [];
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
@@ -41,6 +37,35 @@
       nixpkgs.hostPlatform = "aarch64-darwin";
 
       nixpkgs.config.allowUnfree = true;
+
+      homebrew = {
+        enable = true;
+        onActivation = {
+          autoUpdate = true;
+          upgrade = true;
+          cleanup = "uninstall";
+        };
+        brews = [
+          "kayac/tap/ecspresso"
+        ];
+        taps = [
+          "kayac/homebrew-tap"
+          "dracula/install"
+          "nikitabobko/tap"
+          "homebrew/cask-fonts"
+        ];
+        casks = [
+          "finch"
+          "font-plemol-jp"
+          "font-plemol-jp-nf"
+          "font-udev-gothic-nf"
+          "font-plemol-jp-hs"
+          "font-udev-gothic"
+          "aerospace"
+          "sequel-ace"
+          "sublime-text"
+        ];
+      };
 
       system.defaults = {
         NSGlobalDomain.AppleShowAllExtensions = true;
