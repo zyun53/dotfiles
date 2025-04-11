@@ -20,6 +20,7 @@
     aws-vault
     _1password-cli
     awscli2
+    aws-sam-cli
     rye
     terraform
 
