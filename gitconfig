@@ -4,7 +4,7 @@
 [user]
   name = Isida Zyun'iti
   email = mail@zyun.jp
-  signingkey = 0x6C36E2EF5E3E4571
+  signingkey = 0x67704856E13A5571
 
 [init]
   defaultBranch = main
