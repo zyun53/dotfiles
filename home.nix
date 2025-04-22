@@ -24,6 +24,13 @@
     rye
     terraform
 
+    gnupg
+    qrencode
+    yubikey-personalization
+    yubikey-manager
+    pinentry_mac
+    wget
+
     gh
     ghq
 
@@ -56,6 +63,8 @@
 
     go-task
     todo-txt-cli
+
+    globalping-cli
 
 #   ollama
 #   wrangler
@@ -142,6 +151,9 @@
       };
       ghq = {
         root = "~/src";
+      };
+      commit = {
+        gpgsign = false;
       };
     };
     ignores = [
