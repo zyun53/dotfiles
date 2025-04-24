@@ -65,6 +65,7 @@
     todo-txt-cli
 
     globalping-cli
+    jankyborders
 
 #   ollama
 #   wrangler
@@ -152,9 +153,9 @@
       ghq = {
         root = "~/src";
       };
-      commit = {
-        gpgsign = false;
-      };
+      #commit = {
+      #  gpgsign = false;
+      #};
     };
     ignores = [
       "*~"
@@ -245,6 +246,15 @@
         ];
       };
     };
+  };
+
+  services.jankyborders.enable =  true;
+  services.jankyborders.settings = {
+    style          = "round";
+    width          = "5.0";
+    hidpi          = "on";
+    active_color   = "0xffe1e3e4";
+    inactive_color = "0xff494d64";
   };
 
   programs.direnv = {
