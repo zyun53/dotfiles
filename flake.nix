@@ -3,19 +3,31 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
+    flake-utils.url = "github:numtide/flake-utils";
     nix-darwin = {
         url = "github:nix-darwin/nix-darwin/master";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-
     home-manager = {
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    brew-nix = {
+      # for local testing via `nix flake check` while developing 
+      #url = "path:../";
+      url = "github:BatteredBunny/brew-nix";
+      inputs.nix-darwin.follows = "nix-darwin";
+      inputs.brew-api.follows = "brew-api";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    brew-api = {
+      url = "github:BatteredBunny/brew-api";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, home-manager, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, home-manager, nix-darwin, nixpkgs, brew-nix, ... }:
   let
     configuration = { pkgs, ... }: {
       environment.systemPackages = [];
@@ -91,10 +103,12 @@
       modules = [
           configuration
           home-manager.darwinModules.home-manager
+          brew-nix.darwinModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.zyun = ./home.nix;
+            brew-nix.enable = true;
           }
       ];
     };

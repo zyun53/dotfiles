@@ -5,8 +5,8 @@
   home.homeDirectory = "/Users/zyun";
   home.stateVersion = "24.11";
   home.language.base = "en_US.UTF-8";
-
   home.packages = with pkgs; [
+    brewCasks.pika
     gnutar
     neovim
     mise
