@@ -55,14 +55,10 @@
         ];
         taps = [
           "kayac/homebrew-tap"
-          "dracula/install"
-          "nikitabobko/tap"
-          "homebrew/cask-fonts"
         ];
         casks = [
           "finch"
           "sequel-ace"
-          "sublime-text"
         ];
       };
 
