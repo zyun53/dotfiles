@@ -61,11 +61,6 @@
         ];
         casks = [
           "finch"
-          "font-plemol-jp"
-          "font-plemol-jp-nf"
-          "font-udev-gothic-nf"
-          "font-plemol-jp-hs"
-          "font-udev-gothic"
           "aerospace"
           "sequel-ace"
           "sublime-text"
