@@ -30,6 +30,7 @@
     yubikey-manager
     pinentry_mac
     wget
+    aerospace
 
     gh
     ghq

@@ -61,7 +61,6 @@
         ];
         casks = [
           "finch"
-          "aerospace"
           "sequel-ace"
           "sublime-text"
         ];
