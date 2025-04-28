@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
 set -uex
 
-DOTFILES_PATH=~/src/github.com/zyun53/dotfiles
+DOTFILES_PATH="$(cd "$(dirname "$0")" && pwd)"
 
 link_to_homedir() {
   ln -fsv ${DOTFILES_PATH}/gpg.conf              ~/.gnupg/gpg.conf
   ln -fsv ${DOTFILES_PATH}/starship.toml         ~/.config/starship.toml
-  ln -fsv ${DOTFILES_PATH}/config/nvim/          ~/.config
   ln -fsv ${DOTFILES_PATH}/hammerspoon/init.lua  ~/.hammerspoon/init.lua
   ln -fsv ${DOTFILES_PATH}/aerospace.toml        ~/.aerospace.toml
-  ln -fsv ${DOTFILES_PATH}/zellij/config.kdl     ~/.config/zellij/config.kdl
+
+  ln -fsv ${DOTFILES_PATH}/config/zellij/        ~/.config
+  ln -fsv ${DOTFILES_PATH}/config/nvim/          ~/.config
+  ln -fsv ${DOTFILES_PATH}/config/zsh/           ~/.config
 }
 
 make_misc_dir() {
-  # vim
-  mkdir -p ~/.vim/backup ~/.vim/swap ~/.vim/undo
-
-  # etc
+  mkdir -p ~/.vim/backup
+  mkdir -p ~/.vim/swap
+  mkdir -p ~/.vim/undo
   mkdir -p ~/.gnupg
   mkdir -p ~/.config
-  mkdir -p ~/.config/tmux
 }
 
 make_misc_dir

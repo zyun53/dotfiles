@@ -22,7 +22,7 @@
     awscli2
     aws-sam-cli
     rye
-    terraform
+    #terraform
 
     gnupg
     qrencode
@@ -35,9 +35,12 @@
     gh
     ghq
 
-    #
+    # zsh
+    zsh
+    sheldon
+    starship
+
     # Font
-    #
     plemoljp
     plemoljp-nf
     plemoljp-hs
@@ -91,7 +94,7 @@
   programs.home-manager.enable = true;
 
   programs.zsh = {
-    enable = true;
+    enable = false;
     dotDir = ".config/zsh";
     enableCompletion = true;
     history = {
@@ -103,7 +106,7 @@
     syntaxHighlighting = {
       enable = true;
     };
-    initExtra = ''
+    initContent = ''
       . ${./zshrc}
     '';
   };
