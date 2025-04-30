@@ -3,8 +3,9 @@
 {
   home.username = "zyun";
   home.homeDirectory = "/Users/zyun";
+
   home.stateVersion = "24.11";
-  home.language.base = "en_US.UTF-8";
+
   home.packages = with pkgs; [
     brewCasks.pika
     gnutar
@@ -83,13 +84,6 @@
 #   ollama
 #   wrangler
   ];
-
-
-  home.file = {};
-
-  home.sessionVariables = {
-     VAR1 = "hoge";
-  };
 
   programs.home-manager.enable = true;
 
@@ -185,9 +179,6 @@
       ".idea*"
       "node_modules"
     ];
-    #signing = {
-    #  key = "";
-    #};
   };
 
   services.jankyborders.enable =  true;
@@ -205,9 +196,9 @@
     nix-direnv.enable = true;
   };
 
-  programs.bash.enable = true; # see note on other shells below
+  programs.bash.enable = false; # see note on other shells below
   programs.tmux = {
-    enable = true;
+    enable = false;
 
     baseIndex = 0;
     clock24 = true;
