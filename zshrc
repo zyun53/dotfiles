@@ -3,10 +3,14 @@
 export LC_CTYPE="en_US.UTF-8"
 export GPG_TTY=$(tty)
 
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-export PATH="$HOME/.docker/bin:$PATH"
+#export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+#export VOLTA_HOME="$HOME/.volta"
+#export PATH="$VOLTA_HOME/bin:$PATH"
+#export PATH="$HOME/.docker/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/zyun/.lmstudio/bin"
+# End of LM Studio CLI section
 
 eval "$(sheldon source)"
 
@@ -17,14 +21,17 @@ HISTFILE=${HOME}/.zsh_history
 HISTORY_IGNORE="(cd|pwd|l[sal])"
 HISTSIZE=120000  # Larger than $SAVEHIST for HIST_EXPIRE_DUPS_FIRST to work
 SAVEHIST=100000
-
 setopt EXTENDED_HISTORY       # Save time stamps and durations
+
 setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicates first
+setopt HIST_FIND_NO_DUPS        # do not display previously found command
 setopt HIST_IGNORE_DUPS       # Do not enter 2 consecutive duplicates into history
 setopt HIST_IGNORE_SPACE      # Ignore command lines with leading spaces
+setopt HIST_NO_STORE            # do not save history commands
+setopt HIST_REDUCE_BLANKS
+
 setopt HIST_VERIFY            # Reload results of history expansion before executing
 setopt INC_APPEND_HISTORY     # Constantly update $HISTFILE
-setopt SHARE_HISTORY          # Constantly share history between shell instances
 # }}}
 
 ## fzf {{{

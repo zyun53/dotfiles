@@ -2,7 +2,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Inserts a blank line between shell prompts
-add_newline = false
+add_newline = true
+
+format = """
+$all$line_break$character"""
 
 [character]
 success_symbol = '[➜](bold green)'
@@ -13,3 +16,6 @@ disabled = false
 
 [aws]
 format = 'on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+
+[time]
+disabled = false
