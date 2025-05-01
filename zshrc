@@ -3,6 +3,7 @@
 export LC_CTYPE="en_US.UTF-8"
 export GPG_TTY=$(tty)
 
+# PATH {{{
 #export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 #export VOLTA_HOME="$HOME/.volta"
 #export PATH="$VOLTA_HOME/bin:$PATH"
@@ -11,6 +12,7 @@ export GPG_TTY=$(tty)
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/zyun/.lmstudio/bin"
 # End of LM Studio CLI section
+# }}}
 
 eval "$(sheldon source)"
 
@@ -34,63 +36,63 @@ setopt HIST_VERIFY            # Reload results of history expansion before execu
 setopt INC_APPEND_HISTORY     # Constantly update $HISTFILE
 # }}}
 
-## fzf {{{
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#
-## fbr - checkout git branch
-#fbr() {
-#  local branches branch
-#  branches=$(git branch -vv) &&
-#  branch=$(echo "$branches" | fzf +m) &&
-#  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-#}
-#
-## fd - cd to selected directory
-#fd() {
-#  local dir
-#  dir=$(find ${1:-.} -path '*/\.*' -prune \
-#                  -o -type d -print 2> /dev/null | fzf +m) &&
-#  cd "$dir"
-#}
-#
-#function ghq-fzf() {
-#  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
-#  if [ -n "$src" ]; then
-#    BUFFER="cd $(ghq root)/$src"
-#    zle accept-line
-#  fi
-#  zle -R -c
-#}
-#zle -N ghq-fzf
-#bindkey '^]' ghq-fzf
-##}}}
-#
-## pnpm {{{
+# fzf {{{
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fbr - checkout git branch
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^]' ghq-fzf
+# }}}
+
+# pnpm {{{
 #export PNPM_HOME="$HOME/Library/pnpm"
 #case ":$PATH:" in
 #  *":$PNPM_HOME:"*) ;;
 #  *) export PATH="$PNPM_HOME:$PATH" ;;
 #esac
-## }}}
-#
-## bun {{{
+# }}}
+
+# bun {{{
 #[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 #export BUN_INSTALL="$HOME/.bun"
 #export PATH="$BUN_INSTALL/bin:$PATH"
-## }}}
-#
-## Deno {{{
+# }}}
+
+# Deno {{{
 #export DENO_INSTALL="$HOME/.deno"
 #export PATH="$DENO_INSTALL/bin:$PATH"
-## }}}
-#
-## homebrew {{{
+# }}}
+
+# homebrew {{{
 #export HOMEBREW_PREFIX="/opt/homebrew";
 #export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
 #export HOMEBREW_REPOSITORY="/opt/homebrew";
 #export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 #[ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
 #export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
-## }}}
-#
+# }}}
+
 #source aws_zsh_completer.sh
