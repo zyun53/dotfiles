@@ -96,3 +96,6 @@ bindkey '^]' ghq-fzf
 # }}}
 
 #source aws_zsh_completer.sh
+eval "$(mise activate zsh)"
+
+. "$HOME/.cargo/env"

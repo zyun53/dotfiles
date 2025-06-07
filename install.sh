@@ -12,6 +12,7 @@ link_to_homedir() {
   ln -fsv ${DOTFILES_PATH}/config/zellij/        ~/.config
   ln -fsv ${DOTFILES_PATH}/config/nvim/          ~/.config
   ln -fsv ${DOTFILES_PATH}/config/zsh/           ~/.config
+  ln -fsv ${DOTFILES_PATH}/config/ghostty/       ~/.config
 }
 
 make_misc_dir() {

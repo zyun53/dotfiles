@@ -7,6 +7,7 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
+    silicon
     brewCasks.pika
     gnutar
     neovim
@@ -53,6 +54,7 @@
     yq
     csvq
 
+    tart
     nkf
     kubernetes-helm
     kubectl
@@ -80,6 +82,8 @@
 
     globalping-cli
     jankyborders
+
+    uv
 
 #   ollama
 #   wrangler
