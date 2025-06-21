@@ -73,7 +73,7 @@
           "sequel-ace"
         ];
       };
-
+      system.primaryUser = "zyun";
       system.defaults = {
         NSGlobalDomain.AppleShowAllExtensions = true;
         finder = {

@@ -342,3 +342,13 @@ run= [
 [[on-window-detected]]
 if.app-id = 'net.orb.orb'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run= [
+  'move-node-to-workspace 9'
+]
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'layout floating'

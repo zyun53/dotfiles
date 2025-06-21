@@ -7,8 +7,7 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
-    silicon
-    brewCasks.pika
+    silicon # Create beautiful image of your source code.
     gnutar
     neovim
     mise
@@ -18,13 +17,11 @@
     htop
     colordiff
     graphviz
+    _1password-cli
 
     aws-vault
-    _1password-cli
     awscli2
     aws-sam-cli
-    rye
-    #terraform
 
     gnupg
     qrencode
@@ -32,7 +29,6 @@
     yubikey-manager
     pinentry_mac
     wget
-    aerospace
 
     gh
     ghq
@@ -82,11 +78,6 @@
 
     globalping-cli
     jankyborders
-
-    uv
-
-#   ollama
-#   wrangler
   ];
 
   programs.home-manager.enable = true;
