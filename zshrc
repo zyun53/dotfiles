@@ -1,10 +1,12 @@
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 # vim: foldmethod=marker
 
 export LC_CTYPE="en_US.UTF-8"
 export GPG_TTY=$(tty)
 
 # PATH {{{
-#export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin
 #export VOLTA_HOME="$HOME/.volta"
 #export PATH="$VOLTA_HOME/bin:$PATH"
 #export PATH="$HOME/.docker/bin:$PATH"
@@ -99,3 +101,9 @@ bindkey '^]' ghq-fzf
 eval "$(mise activate zsh)"
 
 . "$HOME/.cargo/env"
+
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+
+# Added by Antigravity
+export PATH="/Users/zyun/.antigravity/antigravity/bin:$PATH"

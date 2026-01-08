@@ -1,19 +1,19 @@
 alias v='nvim'
 alias vi='nvim'
 
-
 alias lg='lazygit'
 alias typora="open -a typora"
 alias typora="open -a typora"
 alias dotfiles="cd ~/src/github.com/zyun53/dotfiles"
 
-alias t='todo.sh'
+alias to='todo.sh'
 
-alias tm='tmux attach || tmux new-session'
-alias ta='tmux attach -t'
-alias tn='tmux new-session'
+# tmux
+alias t='tmux attach -t main || tmux new -s main'
+alias tn='tmux new'
 alias tl='tmux list-sessions'
 
+# zellij
 alias z='zellij attach default --create'
 
 alias nixre="darwin-rebuild switch --flake ~/src/github.com/zyun53/dotfiles"

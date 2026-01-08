@@ -19,9 +19,16 @@
     graphviz
     _1password-cli
 
+    coreutils
+    fdupes
+    rclone
+    inetutils
+
+    dprint # Code formatting platform written in Rust
+
     aws-vault
-    awscli2
-    aws-sam-cli
+    # awscli2 <- mise
+    #aws-sam-cli
 
     gnupg
     qrencode
@@ -64,11 +71,13 @@
     rain
     bottom
     zellij
+    tmux
     watch
     hey
     mtr
     hping
     nmap
+    rustscan
     colima
     docker
     xz
@@ -78,6 +87,8 @@
 
     globalping-cli
     jankyborders
+
+    ldns
   ];
 
   programs.home-manager.enable = true;
@@ -103,61 +114,61 @@
   programs.git = {
     enable = true;
 
-    aliases = {
-      a = "add";
-      p = "push";
-      s = "status";
-      sw = "switch";
-      br = "branch";
-      cm = "commit";
-      st = "status";
-      df = "diff";
-      dfc = "diff --cached";
-      lg = "log --graph --oneline --decorate";
-      ll = "log --graph --date=relative --name-status --abbrev-commit";
-      sl = "log --graph --oneline --date=relative --abbrev-commit";
-      rs = "reset";
-    };
-    extraConfig = {
-      core = {
-        editor = "nvim";
+    settings = {
+      alias = {
+        a = "add";
+        p = "push";
+        s = "status";
+        sw = "switch";
+        br = "branch";
+        cm = "commit";
+        st = "status";
+        df = "diff";
+        dfc = "diff --cached";
+        lg = "log --graph --oneline --decorate";
+        ll = "log --graph --date=relative --name-status --abbrev-commit";
+        sl = "log --graph --oneline --date=relative --abbrev-commit";
+        rs = "reset";
       };
-      advice = {
-        skippedCherryPicks = false;
-      };
-      color = {
-        ui = "auto";
-      };
-      user = {
-        useConfigOnly = true;
-      };
-      init = {
-        defaultBranch = "main";
-      };
-      merge = {
-        conflictStyle = "diff3";
-        ff = false;
-      };
-      pull = {
-        ff = "only";
-      };
-      push = {
-        default = "current";
-      };
-      rebase = {
-        autosquash = true;
-        autostash = true;
-        stat = true;
-      };
-      rerere = {
-        enabled = true;
-      };
-      ghq = {
-        root = "~/src";
-      };
-      #commit = {
-      #  gpgsign = false;
-      #};
+        core = {
+          editor = "nvim";
+        };
+        advice = {
+          skippedCherryPicks = false;
+        };
+        color = {
+          ui = "auto";
+        };
+        user = {
+          useConfigOnly = true;
+        };
+        init = {
+          defaultBranch = "main";
+        };
+        merge = {
+          conflictStyle = "diff3";
+          ff = false;
+        };
+        pull = {
+          ff = "only";
+        };
+        push = {
+          default = "current";
+        };
+        rebase = {
+          autosquash = true;
+          autostash = true;
+          stat = true;
+        };
+        rerere = {
+          enabled = true;
+        };
+        ghq = {
+          root = "~/src";
+        };
+        #commit = {
+        #  gpgsign = false;
+        #};
     };
     ignores = [
       "*~"
@@ -176,7 +187,7 @@
     ];
   };
 
-  services.jankyborders.enable =  true;
+  services.jankyborders.enable =  false;
   services.jankyborders.settings = {
     style          = "round";
     width          = "5.0";
@@ -191,25 +202,27 @@
     nix-direnv.enable = true;
   };
 
-  programs.bash.enable = false; # see note on other shells below
+  programs.bash.enable = false;
   programs.tmux = {
-    enable = false;
+    enable = true;
+    shell = pkgs.lib.getExe pkgs.zsh;
+    terminal = "tmux-256color";
 
-    baseIndex = 0;
+    baseIndex = 1;
     clock24 = true;
     escapeTime = 1;
-    historyLimit = 100000;
+    #historyLimit = 10000;
     keyMode = "vi";
     newSession = false;
     prefix = "C-a";
-    shell = pkgs.lib.getExe pkgs.zsh;
-    terminal = "screen-256color";
     customPaneNavigationAndResize = true;
     disableConfirmationPrompt = true;
     aggressiveResize = true;
 
     plugins = with pkgs;
       [
+        tmuxPlugins.sensible
+        tmuxPlugins.tmux-fzf
         tmuxPlugins.yank
         tmuxPlugins.urlview
         {
@@ -229,6 +242,7 @@
         }
       ];
     extraConfig = ''
+      set -g default-command ${pkgs.zsh}/bin/zsh
       source ${./tmux.conf}
     '';
 

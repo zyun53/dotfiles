@@ -4,6 +4,7 @@
 term = xterm-256color
 
 theme = nord
+#theme = TokyoNight
 
 font-family = UDEV Gothic NF
 font-size = 14
@@ -19,9 +20,10 @@ unfocused-split-fill = gray
 confirm-close-surface = false
 
 quick-terminal-position = top
-quick-terminal-screen =  mouse
+quick-terminal-screen = main
 quick-terminal-autohide = false
 quick-terminal-animation-duration = 0
+quick-terminal-size = 300px
 keybind = global:ctrl+`=toggle_quick_terminal
 
 keybind = cmd+t=unbind
