@@ -39,6 +39,8 @@
 
     gh
     ghq
+    lazygit
+    git-wt
 
     # zsh
     zsh
@@ -130,6 +132,9 @@
         sl = "log --graph --oneline --date=relative --abbrev-commit";
         rs = "reset";
       };
+      wt = {
+        basedir = ".worktrees";
+      };
         core = {
           editor = "nvim";
         };
@@ -166,6 +171,7 @@
         ghq = {
           root = "~/src";
         };
+        credential.helper = "store";
         #commit = {
         #  gpgsign = false;
         #};

@@ -397,6 +397,10 @@ if.app-id = 'com.openai.chat'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.jgraph.drawio.desktop'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'app.reeder'
 run = 'move-node-to-workspace 7'
 
