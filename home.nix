@@ -27,8 +27,10 @@
     dprint # Code formatting platform written in Rust
 
     aws-vault
+    #awsume
     # awscli2 <- mise
     #aws-sam-cli
+    pipx
 
     gnupg
     qrencode
@@ -91,6 +93,7 @@
     jankyborders
 
     ldns
+    graphviz
   ];
 
   programs.home-manager.enable = true;
@@ -190,6 +193,7 @@
       "Thumbs.db"
       ".idea*"
       "node_modules"
+      ".worktrees"
     ];
   };
 

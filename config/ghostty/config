@@ -1,10 +1,6 @@
-# 参考
-# https://gist.github.com/matsuu/657a813ef9162416ea34d691470edc06
-
 term = xterm-256color
 
 theme = nord
-#theme = TokyoNight
 
 font-family = UDEV Gothic NF
 font-size = 14
@@ -27,6 +23,8 @@ quick-terminal-size = 300px
 keybind = global:ctrl+`=toggle_quick_terminal
 
 keybind = cmd+t=unbind
-
 keybind = alt+p=unbind
 keybind = alt+n=unbind
+
+# 参考
+# https://gist.github.com/matsuu/657a813ef9162416ea34d691470edc06

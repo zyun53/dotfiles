@@ -60,3 +60,4 @@ alias root="cd $(git rev-parse --show-toplevel)"
 
 # kubernetes
 alias k="kubectl"
+alias awsume=". awsume"

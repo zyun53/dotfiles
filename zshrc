@@ -107,3 +107,5 @@ eval "$(mise activate zsh)"
 
 # Added by Antigravity
 export PATH="/Users/zyun/.antigravity/antigravity/bin:$PATH"
+
+#source ~/.config/op/plugins.sh
