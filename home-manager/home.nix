@@ -10,6 +10,7 @@ in {
   nixpkgs = {
     overlays = [
       inputs.neovim-nightly-overlay.overlays.default
+      inputs.claude-code.overlays.default
     ];
     config = {
       allowUnfree = true;
@@ -23,6 +24,7 @@ in {
     stateVersion = "25.11";
 
     packages = with pkgs; [
+      claude-code # claude-code-nix
       neovim # nighly
 
       #git
@@ -201,7 +203,9 @@ in {
 
   };
 
-  programs.git = import ./git.nix;
+   imports = [
+   ./git.nix
+ ];
   programs.delta = {
       enable = true;
       enableGitIntegration = true;
@@ -216,7 +220,7 @@ in {
       enableDefaultConfig = false;
       matchBlocks = {
         "*" = {
-            identityAgent = "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+            identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
 	};
       };
   };
