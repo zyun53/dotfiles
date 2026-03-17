@@ -7,15 +7,15 @@
 }: let
   username = "zyun";
 in {
-  nixpkgs = {
-    overlays = [
-      inputs.neovim-nightly-overlay.overlays.default
-      inputs.claude-code.overlays.default
-    ];
-    config = {
-      allowUnfree = true;
-    };
-  };
+  #nixpkgs = {
+  #  overlays = [
+  #    inputs.neovim-nightly-overlay.overlays.default
+  #    inputs.claude-code.overlays.default
+  #  ];
+  #  config = {
+  #    allowUnfree = true;
+  #  };
+  #};
 
   home = {
     username = username;

@@ -1,5 +1,21 @@
 # dotfiles
 
+```sh
+# パッケージ更新
+nix flake update nixpkgs
+
+# Home Manager 更新
+nix flake update home-manager
+
+# nix-darwin 更新
+nix flake update nix-darwin
+
+# 全てを更新
+nix flake update
+
+sudo darwin-rebuild switch
+```
+
 ## nix-darwin
 
 [Setting up Nix on macOS](https://nixcademy.com/de/posts/nix-on-macos/)
