@@ -27,35 +27,19 @@
     system = "aarch64-darwin";
     pkgs = import nixpkgs {inherit system;};
   in {
-    apps.${system}.update = {
-      type = "app";
-      program = toString (pkgs.writeShellScript "update-script" ''
-        set -e
-        echo "Updating flake..."
-        nix flake update
-        echo "Updating home-manager..."
-        nix run nixpkgs#home-manager -- switch --flake .#myHomeConfig
-        echo "Update complete!"
-      '');
-    };
-
     darwinConfigurations."iz-macbook" = nix-darwin.lib.darwinSystem {
       modules = [
+        {
+          nixpkgs = {
+            overlays = [
+              inputs.neovim-nightly-overlay.overlays.default
+              inputs.claude-code.overlays.default
+            ];
+          };
+        }
         ./nix-darwin/configuration.nix
-         home-manager.darwinModules.home-manager
+        home-manager.darwinModules.home-manager
       ];
-    };
-
-    homeConfigurations = {
-      myHomeConfig = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs;
-        extraSpecialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./home-manager/home.nix
-        ];
-      };
     };
   };
 }

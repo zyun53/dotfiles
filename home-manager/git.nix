@@ -6,6 +6,7 @@
       signByDefault = false;
     };
     settings = {
+      core.editor = "nvim";
       user.name = "Isida Zyun'iti";
       user.email = "mail@zyun.jp";
       extraConfig = {
