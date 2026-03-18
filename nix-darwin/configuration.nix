@@ -4,7 +4,16 @@
   ...
 }:
 {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    #overlays = [
+    #  inputs.neovim-nightly-overlay.overlays.default
+    #  inputs.claude-code.overlays.default
+    #];
+    config = {
+      allowUnfree = true;
+    };
+  };
+
   users.users.zyun.home = "/Users/zyun";
   imports = [
     ./home_manager.nix
