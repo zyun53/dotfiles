@@ -6,6 +6,7 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     claude-code.url = "github:sadjow/claude-code-nix";
+    arto.url = "github:arto-app/Arto";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -28,6 +29,7 @@
     pkgs = import nixpkgs {inherit system;};
   in {
     darwinConfigurations."iz-macbook" = nix-darwin.lib.darwinSystem {
+      specialArgs = {inherit inputs;};
       modules = [
         {
           nixpkgs = {

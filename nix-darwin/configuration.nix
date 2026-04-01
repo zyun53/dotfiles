@@ -33,17 +33,23 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
   system.defaults = {
-    finder = {
-      AppleShowAllFiles = true; # 隠しファイルを表示
-      FXDefaultSearchScope = "SCcf"; # 検索範囲をカレントフォルダに設定
-      ShowPathbar = true; # パスバーを表示
-      FXEnableExtensionChangeWarning = false; # ファイル拡張子変更の警告を無効化
-      FXPreferredViewStyle = "Nlsv"; # デフォルトの表示方法をリストビューに設定
-    };
-    dock = {
-      show-recents = false; # 最近使ったアプリを非表示
-      launchanim = false; # アプリ起動時のアニメーションを無効化
-      mineffect = "scale"; # ウィンドウを閉じるときのエフェクトをスケールに設定
-    };
+        #NSGlobalDomain.AppleShowAllExtensions = true;
+        finder = {
+          AppleShowAllExtensions = true;
+          FXPreferredViewStyle = "Nlsv";
+          FXEnableExtensionChangeWarning = false;
+          ShowPathbar = true;
+          ShowStatusBar = true;
+        };
+        dock = {
+          autohide = true;
+          show-recents = false;
+          orientation = "bottom";
+          tilesize = 50;
+          magnification = true;
+          largesize = 64;
+          mineffect = "scale";
+          launchanim = false;
+        };
   };
 }
