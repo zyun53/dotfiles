@@ -37,6 +37,7 @@ in {
 
       yazi
 
+      poppler-utils
 
       # zsh
       #zsh
