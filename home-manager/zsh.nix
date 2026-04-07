@@ -43,17 +43,16 @@
     '';
 
     shellAliases = {
-      e   = "eza --git";
-      l   = "e";
-      ls  = "e";
-      ea  = "eza -a --git";
-      la  = "ea";
-      ee  = "eza -aahl --git";
-      ll  = "ee";
-      et  = "eza -T -L 3 -a -I 'node_modules|.git|.cache'";
-      lt  = "et";
-      eta = "eza -T -a -I 'node_modules|.git|.cache' --color=always | less -r";
+      l   = "eza -F";
+      ls  = "eza -F";
+      ll  = "eza -F -lgh --git";
+      la  = "eza -F -a";
+      lla = "eza -F -lgha --git";
+      lsd = "eza -F -D";
       lta = "eta";
+      ee  = "eza -aahl --git";
+      et  = "eza -T -L 3 -a -I 'node_modules|.git|.cache'";
+      eta = "eza -T -a -I 'node_modules|.git|.cache' --color=always | less -r";
       lc  = "clear && ls";
 
       cat = "bat";
