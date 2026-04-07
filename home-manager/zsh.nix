@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
@@ -24,9 +28,34 @@
          local session="''${1:-main}"
          tmux attach -t "$session" || tmux new -s "$session"
       }
+      function ghq-fzf_change_directory() {
+          # 選択したリポジトリへ移動 かつ
+          # 右にリポジトリのディレクトリ詳細を表示
+        local src=$(ghq list | fzf --preview "eza --color=always -l -g -a --icons --time-style iso $(ghq root)/{} | tail -n+4 | awk '{print \$5 \" \"\$6\" /\"\$8\" \"\$9 \" \" \$10}'")
+        if [ -n "$src" ]; then
+          BUFFER="cd $(ghq root)/$src"
+          zle accept-line
+        fi
+        zle -R -c
+      }
+      zle -N ghq-fzf_change_directory
+      bindkey '^]' ghq-fzf_change_directory
     '';
 
     shellAliases = {
+      e   = "eza --git";
+      l   = "e";
+      ls  = "e";
+      ea  = "eza -a --git";
+      la  = "ea";
+      ee  = "eza -aahl --git";
+      ll  = "ee";
+      et  = "eza -T -L 3 -a -I 'node_modules|.git|.cache'";
+      lt  = "et";
+      eta = "eza -T -a -I 'node_modules|.git|.cache' --color=always | less -r";
+      lta = "eta";
+      lc  = "clear && ls";
+
       cat = "bat";
       iso = "date '+%Y-%m-%dT%H:%M:%S%z'";
       dr = "direnv reload";
