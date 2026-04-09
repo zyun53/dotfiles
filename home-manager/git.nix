@@ -9,6 +9,7 @@
       core.editor = "nvim";
       user.name = "Isida Zyun'iti";
       user.email = "mail@zyun.jp";
+      init.defaultBranch = "main";
       extraConfig = {
         pull.ff = "only";
         init.defaultBranch = "main";

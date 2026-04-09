@@ -123,6 +123,7 @@ in {
       globalping-cli
 
       ldns
+      exiftool
     ];
   };
 
