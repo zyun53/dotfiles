@@ -25,6 +25,7 @@ in {
       inputs.arto.packages.${pkgs.system}.default
       claude-code # claude-code-nix
       neovim # nighly
+      codex
 
       #git
       gh
@@ -144,51 +145,13 @@ in {
     enableZshIntegration = true;
   };
 
-  programs.tmux = {
-    enable = true;
-    baseIndex = 1;
-    prefix = "C-a";
-    clock24 = true;
-    mouse = true;
-    keyMode = "vi";
-    terminal = "screen-256color";
-    #   shell = pkgs.lib.getExe pkgs.zsh;
-    #   shell = pkgs.lib.getExe pkgs.zsh;
-    shell = "${pkgs.zsh}/bin/zsh";
-    customPaneNavigationAndResize = true;
-    disableConfirmationPrompt = true;
-    aggressiveResize = true;
-    plugins = with pkgs; [
-      tmuxPlugins.sensible
-      tmuxPlugins.tmux-fzf
-      tmuxPlugins.yank
-      tmuxPlugins.urlview
-      {
-        plugin = tmuxPlugins.prefix-highlight;
-        extraConfig = ''
-          set -g status-fg 'green'
-          set -g status-bg 'black'
-
-          set -g status-left " #S | "
-          set -g status-right '#{prefix_highlight} | #[fg=green]%a %Y-%m-%d %H:%M | #H '
-
-          setw -g window-status-format ' #I:#W #F '
-          setw -g window-status-current-format '#[bg=colour240] #I:#W #F '
-          set -g @prefix_highlight_show_copy_mode 'on'
-          set -g @prefix_highlight_show_sync_mode 'on'
-        '';
-      }
-    ];
-    extraConfig = ''
-      set -g default-command ${pkgs.zsh}/bin/zsh
-      set -g pane-border-lines heavy
-    '';
-  };
 
   imports = [
     ./git.nix
     ./zsh.nix
+    ./tmux.nix
   ];
+
   programs.delta = {
     enable = true;
     enableGitIntegration = true;
@@ -198,6 +161,7 @@ in {
       dark = true;
     };
   };
+
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;

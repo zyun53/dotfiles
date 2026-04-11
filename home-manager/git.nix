@@ -15,11 +15,11 @@
         init.defaultBranch = "main";
       };
       alias = {
-        c = "commit -m";
+        cm = "commit";
         cn = "commit --no-gpg-sign -m";
         ca = "commit --amend --no-edit";
-        s = "status";
-        d = "diff";
+        st = "status";
+        df = "diff";
         ds = "diff --staged";
         rs = "restore --staged";
         sc = "switch --create";
