@@ -40,20 +40,22 @@
       }
       zle -N ghq-fzf_change_directory
       bindkey '^]' ghq-fzf_change_directory
+
+      compdef _eza l ls ll la lla lsd ee et eta
     '';
 
     shellAliases = {
-      l   = "eza -F";
-      ls  = "eza -F";
-      ll  = "eza -F -lgh --git";
-      la  = "eza -F -a";
+      l = "eza -F";
+      ls = "eza -F";
+      ll = "eza -F -lgh --git";
+      la = "eza -F -a";
       lla = "eza -F -lgha --git";
       lsd = "eza -F -D";
       lta = "eta";
-      ee  = "eza -aahl --git";
-      et  = "eza -T -L 3 -a -I 'node_modules|.git|.cache'";
+      ee = "eza -aahl --git";
+      et = "eza -T -L 3 -a -I 'node_modules|.git|.cache'";
       eta = "eza -T -a -I 'node_modules|.git|.cache' --color=always | less -r";
-      lc  = "clear && ls";
+      lc = "clear && ls";
 
       cat = "bat";
       iso = "date '+%Y-%m-%dT%H:%M:%S%z'";

@@ -37,7 +37,6 @@ in {
       terminal-notifier
 
       yazi
-      eza
 
       poppler-utils
 
@@ -130,6 +129,11 @@ in {
 
   programs.home-manager.enable = true;
 
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = false;
+  };
+
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
@@ -144,7 +148,6 @@ in {
     enable = true;
     enableZshIntegration = true;
   };
-
 
   imports = [
     ./git.nix
