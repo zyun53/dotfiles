@@ -124,6 +124,7 @@ in {
 
       ldns
       exiftool
+      ollama
     ];
   };
 

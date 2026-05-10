@@ -57,7 +57,6 @@
       eta = "eza -T -a -I 'node_modules|.git|.cache' --color=always | less -r";
       lc = "clear && ls";
 
-      cat = "bat";
       iso = "date '+%Y-%m-%dT%H:%M:%S%z'";
       dr = "direnv reload";
 

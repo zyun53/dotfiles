@@ -10,6 +10,7 @@
     clock24 = true;
     mouse = true;
     keyMode = "vi";
+    historyLimit = 100000;
     terminal = "screen-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     customPaneNavigationAndResize = true;
@@ -20,9 +21,7 @@
         plugin = rose-pine;
         extraConfig = ''
           set -g @rose_pine_variant 'main'
-
           set -g @rose_pine_date_time '%H:%M' 
-
         '';
       }
     ];

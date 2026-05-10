@@ -7,6 +7,7 @@
     };
     settings = {
       core.editor = "nvim";
+      core.quotepath = false;
       user.name = "Isida Zyun'iti";
       user.email = "mail@zyun.jp";
       init.defaultBranch = "main";
