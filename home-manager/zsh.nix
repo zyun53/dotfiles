@@ -15,7 +15,7 @@
       enable = true;
     };
 
-    initExtra = ''
+    initContent = ''
       function y() {
         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
         yazi "$@" --cwd-file="$tmp"
@@ -26,7 +26,14 @@
       }
       t() {
          local session="''${1:-main}"
-         tmux attach -t "$session" || tmux new -s "$session"
+         if [ -n "$TMUX" ]; then
+           tmux switch-client -t "$session" 2>/dev/null || {
+             tmux new-session -ds "$session"
+             tmux switch-client -t "$session"
+           }
+         else
+           tmux new-session -As "$session"
+         fi
       }
       function ghq-fzf_change_directory() {
           # 選択したリポジトリへ移動 かつ
@@ -64,9 +71,6 @@
 
       v = "nvim";
       vi = "nvim";
-
-      tn = "tmux new";
-      tl = "tmux list-sessions";
 
       g = "git";
       lg = "lazygit";

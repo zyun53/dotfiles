@@ -21,6 +21,8 @@ in {
       EDITOR = "nvim";
     };
 
+
+
     packages = with pkgs; [
       inputs.arto.packages.${pkgs.system}.default
       claude-code # claude-code-nix
@@ -45,7 +47,7 @@ in {
       #sheldon
       #starship
 
-      python314
+      #python314
       uv
       curl
 
@@ -103,13 +105,16 @@ in {
       #postgresql
       minio-client
       fzf
+      gum
+      sesh
       #skim # Command-line fuzzy finder written in Rust
       aria2
       ookla-speedtest
       ffmpeg
       whisper-cpp
 
-      #rain
+      rain
+      #python314Packages.cfn-lint
       #bottom
       watch
       hey
@@ -124,11 +129,19 @@ in {
 
       ldns
       exiftool
-      ollama
+      #ollama
+
+      markdownlint-cli2
     ];
   };
 
   programs.home-manager.enable = true;
+
+  imports = [
+    ./git.nix
+    ./zsh.nix
+    ./tmux.nix
+  ];
 
   programs.eza = {
     enable = true;
@@ -150,12 +163,6 @@ in {
     enableZshIntegration = true;
   };
 
-  imports = [
-    ./git.nix
-    ./zsh.nix
-    ./tmux.nix
-  ];
-
   programs.delta = {
     enable = true;
     enableGitIntegration = true;
@@ -169,7 +176,7 @@ in {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "sv-*" = {
         user = "user99";
       };
@@ -182,5 +189,10 @@ in {
         identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
       };
     };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }

@@ -38,6 +38,7 @@
       ".DS_Store"
       ".direnv"
       ".envrc"
+      ".claude/settings.local.json"
     ];
   };
 }
